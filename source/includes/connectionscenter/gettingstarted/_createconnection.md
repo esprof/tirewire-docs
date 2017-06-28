@@ -14,12 +14,15 @@ Enter a name for your connection (this is just a testing connection so the name 
 
 `Key: CL107US6`
 
+<img src="/images/connectionscenter/gettingstarted/createconnection2.png">
 
 Click create connection and the following dialog box will show up:
 
+<img src="/images/connectionscenter/gettingstarted/createconnection3.png">
 
 Data owners have control of where the information you pull indirectly from them can be displayed. As this is just a test connection this is not important for now, but it may be for future connections depending on your intended use. So, for now we can just press OK here without selecting anything.
 
+<img src="/images/connectionscenter/gettingstarted/createconnection4.png">
 
 Press OK again when the above dialog shows up.
 
