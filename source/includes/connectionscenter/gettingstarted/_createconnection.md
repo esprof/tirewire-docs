@@ -8,11 +8,11 @@ You probably won't have any connections to begin with so you'll want to create a
 
 Enter a name for your connection (this is just a testing connection so the name is not important), click the Tireweb logo and enter the following credentials (leave Biller Code blank):
 
-`Username: test1`
-
-`Password: test1`
-
-`Key: CL107US6`
+<table>
+<tr><td>Username</td><td>test1</td></tr>
+<tr><td>Password</td><td>test1</td></tr>
+<tr><td>Key</td><td>CL107US6</td></tr>
+</table>
 
 <img src="/images/connectionscenter/gettingstarted/createconnection2.png">
 

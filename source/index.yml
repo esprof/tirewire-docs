@@ -1,8 +1,8 @@
 title: Connections Center API
 
 language_tabs:
-  - bash
-  - csharp
+  - shell
+  - CSharp
 
 toc_footers:
   - <a href='#access-keys'>Contact Us for an Access Key</a>
@@ -23,8 +23,11 @@ includes:
   - connectionscenter/gettingstarted/_gettingstarted
   - connectionscenter/gettingstarted/_createconnection
   - connectionscenter/gettingstarted/_creategroup
+  - connectionscenter/gettingstarted/_validategrouptoken
+  - connectionscenter/gettingstarted/_getconnectionsbygrouptoken
+  - connectionscenter/gettingstarted/_retrievetiredata
 
-  - _errors
+#  - _errors
 
 search: true
 
