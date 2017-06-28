@@ -10,6 +10,15 @@ toc_footers:
 
 includes:
   - main
+
+# Connections Center Overview
+  - connectionscenter/_connectionscenter
+  - connectionscenter/_overview
+  - connectionscenter/_suppliersystems
+  - connectionscenter/_accesskeys
+  - connectionscenter/_connections
+  - connectionscenter/_groups
+
   - _errors
 
 search: true
