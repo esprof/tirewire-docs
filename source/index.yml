@@ -11,13 +11,18 @@ toc_footers:
 includes:
   - main
 
-# Connections Center Overview
+# Connections Center - Overview
   - connectionscenter/_connectionscenter
   - connectionscenter/_overview
   - connectionscenter/_suppliersystems
   - connectionscenter/_accesskeys
   - connectionscenter/_connections
   - connectionscenter/_groups
+
+# Connections Center - Getting Started
+  - connectionscenter/gettingstarted/_gettingstarted
+  - connectionscenter/gettingstarted/_createconnection
+  - connectionscenter/gettingstarted/_creategroup
 
   - _errors
 
