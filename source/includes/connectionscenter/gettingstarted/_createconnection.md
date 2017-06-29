@@ -5,6 +5,7 @@ Before you can start using the Connections Center web services, you need to setu
 You probably won't have any connections to begin with so you'll want to create a new connection by clicking on the link.
 
 <img src="/images/connectionscenter/gettingstarted/createconnection1.png">
+<%- image_tag('connectionscenter/gettingstarted/createconnection1.png') %>
 
 Enter a name for your connection (this is just a testing connection so the name is not important), click the Tireweb logo and enter the following credentials (leave Biller Code blank):
 
