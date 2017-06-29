@@ -29,6 +29,12 @@ includes:
 # Connections Center - Common Web Service
   - connectionscenter/commonservice/_commonservice
   - connectionscenter/commonservice/_methods
+  - connectionscenter/commonservice/_getallmakes
+  - connectionscenter/commonservice/_getconnectionbyid
+  - connectionscenter/commonservice/_getconnectionsbygroup
+  - connectionscenter/commonservice/_getsuppliersystembyid
+  - connectionscenter/commonservice/_getsuppliersystems
+  - connectionscenter/commonservice/_validategrouptoken
 
 # Connections Center - Products Web Service
 #  - connectionscenter/productsservice/_productsservice
