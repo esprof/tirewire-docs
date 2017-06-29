@@ -27,6 +27,12 @@ includes:
   - connectionscenter/gettingstarted/_getconnectionsbygrouptoken
   - connectionscenter/gettingstarted/_retrievetiredata
 
+# Connections Center - Getting Started
+  - connectionscenter/commonservice/_commonservice
+  - connectionscenter/commonservice/_location
+  - connectionscenter/commonservice/_overview
+  - connectionscenter/commonservice/_methods
+
 #  - _errors
 
 search: true
