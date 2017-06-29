@@ -1,0 +1,219 @@
+<!doctype html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Connections Center API</title>
+    <link href="stylesheets/screen.css" rel="stylesheet" type="text/css" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" type="text/css" media="print" />
+    <link href="stylesheets/highlight-monokai.css" rel="stylesheet" type="text/css" media="screen, print" />
+    <script src="javascripts/all.js" type="text/javascript"></script>
+  </head>
+
+  <body class="" data-languages="[&#34;shell&#34;,&#34;CSharp&#34;]"> <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img alt="undefined" class="undefined" src="images/navbar.png">
+      </span>
+    </a>
+    <div class="tocify-wrapper"> <img alt="undefined" class="undefined" src="images/logo.png">
+      <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="CSharp">CSharp</a> </div>
+      <div class="search"> <input type="text" class="search" id="input-search" placeholder="Search"> </div>
+      <ul class="search-results"></ul>
+      <div id="toc"> </div>
+      <ul class="toc-footer">
+        <li><a href='#access-keys'>Contact Us for an Access Key</a></li>
+        <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+      </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introduction">Introduction</h1>
+        <p>Welcome to the official reference for Tirewire&#39;s Application Programming Interface (API).</p>
+        <p>Tirewire provides powerful web services that can be used for integrating into your point of sale system, building your e-commerce shopfront and any other mobile or desktop application.</p>
+        <h1 id="connections-center">Connections Center</h1>
+        <h2 id="overview">Overview</h2>
+        <p align="center"><img src="/images/connectionscenter/logo.png"></p>
+        <p>The connections center allows you to retrieve pricing and inventory data from a number of different Supplier Systems as well as place orders with those systems. Each Supplier System can be accessed using the same web service methods and data returned
+          from each Supplier System is in a uniform format.</p>
+        <h2 id="supplier-systems">Supplier Systems</h2>
+        <p>Supplier Systems which the Connections Center can provide access to include the following:</p>
+        <ul>
+          <li>Aftersoft</li>
+          <li>ASA TireMaster</li>
+          <li>ASA TireMaster Enterprise</li>
+          <li>ATD</li>
+          <li>Atturo</li>
+          <li>Barron&#39;s Wholesale Tire</li>
+          <li>Carroll Tire Online</li>
+          <li>Dealer Connect</li>
+          <li>Express Tire Delivery</li>
+          <li>Freedomsoft</li>
+          <li>Jack Williams Tire</li>
+          <li>JMK</li>
+          <li>K &amp; M Tire</li>
+          <li>Kauffman Tire</li>
+          <li>MaddenCo</li>
+          <li>Max Finkelstein</li>
+          <li>National Tire Online</li>
+          <li>Sullivan Tire</li>
+          <li>TCI Tire Centers</li>
+          <li>Tireweb</li>
+          <li>TreadConnect</li>
+          <li>U.S. AutoForce</li>
+          <li>Van Kleeck&#39;s Tire</li>
+        </ul>
+        <h2 id="access-keys">Access Keys</h2>
+        <p>Access to each of the Connections Center Web Services requires an Access Key (or API Key), provided by Tirewire. The Access Key identifies and authenticates you to the Connections Center and must be provided with each Web Service method request.</p>
+        <aside class="notice"> If you don&#39;t have an access key, please contact developer@tirewire.com </aside>
+        <h2 id="connections">Connections</h2>
+        <p>Access to data from Supplier Systems is achieved via Connections. A Connection stores the credentials required to retrieve data from the Supplier System, and to place orders. Connections can be created, modified and deleted via the Connections
+          Center Tool in Tirewire.</p>
+        <h1 id="getting-started">Getting Started</h1>
+        <h2 id="creating-a-connection">Creating a Connection</h2>
+        <p>The following instructions will be using credentials for a testing account. You will need to obtain credentials from the data owner before you set up your production connection. Before you can start using the Connections Center web services, you
+          need to setup a connection and group. To do this, go to your Tirewire account and click on Connections Center.</p>
+        <p>You probably won&#39;t have any connections to begin with so you&#39;ll want to create a new connection by clicking on the link.</p>
+        <p><img src="/images/connectionscenter/gettingstarted/createconnection1.png"></p>
+        <p>Enter a name for your connection (this is just a testing connection so the name is not important), click the Tireweb logo and enter the following credentials (leave Biller Code blank):</p>
+        <table>
+          <tr>
+            <td>Username</td>
+            <td>test1</td>
+          </tr>
+          <tr>
+            <td>Password</td>
+            <td>test1</td>
+          </tr>
+          <tr>
+            <td>Key</td>
+            <td>CL107US6</td>
+          </tr>
+        </table>
+        <p><img src="/images/connectionscenter/gettingstarted/createconnection2.png"></p>
+        <p>Click create connection and the following dialog box will show up:</p>
+        <p><img src="/images/connectionscenter/gettingstarted/createconnection3.png"></p>
+        <p>Data owners have control of where the information you pull indirectly from them can be displayed. As this is just a test connection this is not important for now, but it may be for future connections depending on your intended use. So, for now
+          we can just press OK here without selecting anything.</p>
+        <p><img src="/images/connectionscenter/gettingstarted/createconnection4.png"></p>
+        <p>Press OK again when the above dialog shows up.</p>
+        <p>The message down the bottom of the screen about the credit card can be ignored, as this is just a test connection.</p>
+        <h2 id="creating-a-group">Creating a Group</h2>
+        <p>Now that a connection has been created, the next step is to create a group. Groups are important in categorizing connections and are required to use the Connections Center web services.</p>
+        <p>To create a group, the first thing to do is navigate to the Connections Center and click on New Group:</p>
+        <p><img src="/images/connectionscenter/gettingstarted/creategroup1.png"></p>
+        <p>Here, enter a name for your group and click OK. This is just for testing so the name is not important.</p>
+        <p><img src="/images/connectionscenter/gettingstarted/creategroup2.png"></p>
+        <p>The next step is to drag your connection into the group. Group&#39;s are capable of having multiple connections and connections can be in multiple groups. A scenario where groups are helpful is if you were using the connections center to pull
+          data into your online store as well as your point of sale system. If you have 3 connections and want to use them all in your point of sale but only one in your online store, you would create an &quot;online store&quot; group and a &quot;point
+          of sale&quot; group and then setup your other systems to pull connection data from their corresponding group.</p>
+        <p><img src="/images/connectionscenter/gettingstarted/creategroup3.png"></p>
+        <p>Now that we have a group setup, we can retrieve the group token to use in web services. To do this, click the dropdown and select Get Token:</p>
+        <p><img src="/images/connectionscenter/gettingstarted/creategroup4.png"></p>
+        <p>Your token will appear in the next dialog. You are now ready to use the Connections Center web services.</p>
+        <p><img src="/images/connectionscenter/gettingstarted/creategroup5.png"></p>
+        <h2 id="validate-group-token">Validate Group Token</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/commonservice/ValidateGroupToken"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>request.xml</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ValidateGroupToken</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/commonservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ValidateGroupToken</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>response.xml</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ValidateGroupTokenResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/commonservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ValidateGroupTokenResult</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ValidateGroupTokenResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">ValidateGroupTokenResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Part of the authentication for the Connection Center web services is the information stored in your connections. To retrieve the connection information we need to use our group token that was obtained before.</p>
+        <p>First we will check and see if our group token is valid.</p>
+        <h2 id="get-connections-by-group-token">Get Connections by Group Token</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction:http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionsByGroup"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>request.xml</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetConnectionsByGroup</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/commonservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionsByGroup</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>response.xml</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetConnectionsByGroupResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/commonservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetConnectionsByGroupResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Connections</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionInformation</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">WarehouseName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">WarehouseName</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Type</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Type</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionInformation</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Connections</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionsByGroupResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionsByGroupResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Now that we know our group token is valid we can go ahead and get the connection information.</p>
+        <h2 id="retrieve-tire-data">Retrieve Tire Data</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction:http://ws.tirewire.com/connectionscenter/productsservice/GetTires"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/productsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>request.xml</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="hljs-attr">xmlns:prod</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/productsservice"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Header</span>/&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">prod:GetTires</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">prod:options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">prod:AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">prod:GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">prod:ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:Width</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">prod:Width</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:Aspect</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">prod:Aspect</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">prod:Rim</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">prod:Rim</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">prod:options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">prod:GetTires</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Finally, knowing the connection ID, we can query it for stock. We&#39;ll begin with a simple size search.</p>
+      </div>
+      <div class="dark-box">
+        <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="CSharp">CSharp</a> </div>
+      </div>
+    </div>
+  </body>
+
+</html>
