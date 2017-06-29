@@ -13,7 +13,6 @@ includes:
 
 # Connections Center - Overview
   - connectionscenter/_connectionscenter
-  - connectionscenter/_overview
   - connectionscenter/_suppliersystems
   - connectionscenter/_accesskeys
   - connectionscenter/_connections
@@ -29,7 +28,6 @@ includes:
 
 # Connections Center - Common Web Service
   - connectionscenter/commonservice/_commonservice
-  - connectionscenter/commonservice/_overview
   - connectionscenter/commonservice/_methods
 
 # Connections Center - Products Web Service
