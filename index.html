@@ -36,7 +36,7 @@
         <p>Tirewire provides powerful web services that can be used for integrating into your point of sale system, building your e-commerce shopfront and any other mobile or desktop application.</p>
         <h1 id="connections-center">Connections Center</h1>
         <h2 id="overview">Overview</h2>
-        <p align="center"><img src="/images/connectionscenter/logo.png"></p>
+        <p align="center"><img src="images/connectionscenter/logo.png"></p>
         <p>The connections center allows you to retrieve pricing and inventory data from a number of different Supplier Systems as well as place orders with those systems. Each Supplier System can be accessed using the same web service methods and data returned
           from each Supplier System is in a uniform format.</p>
         <h2 id="supplier-systems">Supplier Systems</h2>
@@ -77,7 +77,7 @@
         <p>The following instructions will be using credentials for a testing account. You will need to obtain credentials from the data owner before you set up your production connection. Before you can start using the Connections Center web services, you
           need to setup a connection and group. To do this, go to your Tirewire account and click on Connections Center.</p>
         <p>You probably won&#39;t have any connections to begin with so you&#39;ll want to create a new connection by clicking on the link.</p>
-        <p><img src="/images/connectionscenter/gettingstarted/createconnection1.png"> &lt;%- image_tag(&#39;connectionscenter/gettingstarted/createconnection1.png&#39;) %&gt;</p>
+        <p><img src="images/connectionscenter/gettingstarted/createconnection1.png"></p>
         <p>Enter a name for your connection (this is just a testing connection so the name is not important), click the Tireweb logo and enter the following credentials (leave Biller Code blank):</p>
         <table>
           <tr>
@@ -93,28 +93,28 @@
             <td>CL107US6</td>
           </tr>
         </table>
-        <p><img src="/images/connectionscenter/gettingstarted/createconnection2.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/createconnection2.png"></p>
         <p>Click create connection and the following dialog box will show up:</p>
-        <p><img src="/images/connectionscenter/gettingstarted/createconnection3.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/createconnection3.png"></p>
         <p>Data owners have control of where the information you pull indirectly from them can be displayed. As this is just a test connection this is not important for now, but it may be for future connections depending on your intended use. So, for now
           we can just press OK here without selecting anything.</p>
-        <p><img src="/images/connectionscenter/gettingstarted/createconnection4.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/createconnection4.png"></p>
         <p>Press OK again when the above dialog shows up.</p>
         <p>The message down the bottom of the screen about the credit card can be ignored, as this is just a test connection.</p>
         <h2 id="creating-a-group">Creating a Group</h2>
         <p>Now that a connection has been created, the next step is to create a group. Groups are important in categorizing connections and are required to use the Connections Center web services.</p>
         <p>To create a group, the first thing to do is navigate to the Connections Center and click on New Group:</p>
-        <p><img src="/images/connectionscenter/gettingstarted/creategroup1.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/creategroup1.png"></p>
         <p>Here, enter a name for your group and click OK. This is just for testing so the name is not important.</p>
-        <p><img src="/images/connectionscenter/gettingstarted/creategroup2.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/creategroup2.png"></p>
         <p>The next step is to drag your connection into the group. Group&#39;s are capable of having multiple connections and connections can be in multiple groups. A scenario where groups are helpful is if you were using the connections center to pull
           data into your online store as well as your point of sale system. If you have 3 connections and want to use them all in your point of sale but only one in your online store, you would create an &quot;online store&quot; group and a &quot;point
           of sale&quot; group and then setup your other systems to pull connection data from their corresponding group.</p>
-        <p><img src="/images/connectionscenter/gettingstarted/creategroup3.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/creategroup3.png"></p>
         <p>Now that we have a group setup, we can retrieve the group token to use in web services. To do this, click the dropdown and select Get Token:</p>
-        <p><img src="/images/connectionscenter/gettingstarted/creategroup4.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/creategroup4.png"></p>
         <p>Your token will appear in the next dialog. You are now ready to use the Connections Center web services.</p>
-        <p><img src="/images/connectionscenter/gettingstarted/creategroup5.png"></p>
+        <p><img src="images/connectionscenter/gettingstarted/creategroup5.png"></p>
         <h2 id="validate-group-token">Validate Group Token</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
