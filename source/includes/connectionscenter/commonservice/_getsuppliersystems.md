@@ -60,7 +60,7 @@ curl -p
 Retrieves all Supplier Systems.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystems
+`http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystems`
 
 ### Input Parameters
 Parameter | Type | Description

@@ -61,7 +61,7 @@ curl -p
 Retrieves a Supplier System by its ID.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystemByID
+`http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystemByID`
 
 ### Input Parameters
 Parameter | Type | Description

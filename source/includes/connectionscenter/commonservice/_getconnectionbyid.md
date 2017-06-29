@@ -51,7 +51,7 @@ curl -p
 Retrieves a Connection by ID.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionByID
+`http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionByID`
 
 ### Input Parameters
 Parameter | Type | Description

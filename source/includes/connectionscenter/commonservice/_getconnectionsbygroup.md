@@ -61,7 +61,7 @@ curl -p
 Retrieves all Connections in a given Group.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionsByGroup
+`http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionsByGroup`
 
 ### Input Parameters
 Parameter | Type | Description

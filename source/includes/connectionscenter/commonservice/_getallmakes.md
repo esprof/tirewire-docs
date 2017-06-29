@@ -48,7 +48,7 @@ curl -p
 Retrieves all makes from the TireLibrary.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/GetAllMakes
+`http://ws.tirewire.com/connectionscenter/commonservice/GetAllMakes`
 
 ### Input Parameters
 Parameter | Type | Description

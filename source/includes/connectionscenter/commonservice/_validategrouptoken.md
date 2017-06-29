@@ -35,7 +35,7 @@ curl -p
 Retrieves all Connections in a given Group.
 
 ### SOAP Action
-http://ws.tirewire.com/connectionscenter/commonservice/ValidateGroupToken
+`http://ws.tirewire.com/connectionscenter/commonservice/ValidateGroupToken`
 
 ### Input Parameters
 Parameter | Type | Description
