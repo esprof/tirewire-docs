@@ -36,7 +36,12 @@ includes:
   - connectionscenter/commonservice/_validategrouptoken
 
 # Connections Center - Products Web Service
-#  - connectionscenter/productsservice/_productsservice
+  - connectionscenter/productsservice/_productsservice
+  - connectionscenter/productsservice/_gettiresbysize
+  - connectionscenter/productsservice/_gettiresbywar
+  - connectionscenter/productsservice/_gettiresbyid
+  - connectionscenter/productsservice/_gettiresbyids
+  - connectionscenter/productsservice/_gettiresresponse
 #  - connectionscenter/productsservice/_location
 #  - connectionscenter/productsservice/_overview
 #  - connectionscenter/productsservice/_methods
