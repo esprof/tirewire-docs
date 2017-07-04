@@ -53,7 +53,7 @@ Retrieves a Connection by ID.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionByID`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)

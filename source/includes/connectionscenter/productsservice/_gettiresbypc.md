@@ -1,4 +1,4 @@
-## GetTires (By Width, Aspect & Rim)
+## GetTires (By Product Code)
 
 ```shell
 curl -p
@@ -18,16 +18,14 @@ curl -p
         <AccessKey>string</AccessKey>
         <GroupToken>string</GroupToken>
         <ConnectionID>int</ConnectionID>
-        <Width>string</Width>
-        <Aspect>string</Aspect>
-        <Rim>string</Rim>
+        <ProductCode>string</ProductCode>
       </options>
     </GetTires>
   </soap:Body>
 </soap:Envelope>
 ```
 
-Retrieves tire(s) by size, specified as width, aspect ratio and rim size.
+Retrieves tire by product code.
 
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/productsservice/GetTires`
@@ -38,6 +36,4 @@ Parameter | Type | Description
 AccessKey | string | [Access Key](#access-keys)
 GroupToken | string | [The token for the group containing the connection](#creating-a-group)
 ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
-Width | string | Tire width (eg. 205)
-Aspect | string | Tire aspect ratio (eg. 65)
-Rim | string | Tire rim size (eg. 15)
+ProductCode | string | Manufacturer product code

@@ -37,7 +37,7 @@ Retrieves all Connections in a given Group.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/ValidateGroupToken`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 groupToken | string | [The token for the group](#creating-a-group)

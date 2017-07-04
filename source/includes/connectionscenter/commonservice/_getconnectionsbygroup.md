@@ -63,7 +63,7 @@ Retrieves all Connections in a given Group.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionsByGroup`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)

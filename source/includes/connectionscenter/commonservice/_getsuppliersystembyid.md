@@ -63,7 +63,7 @@ Retrieves a Supplier System by its ID.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystemByID`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)

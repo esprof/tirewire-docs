@@ -62,7 +62,7 @@ Retrieves all Supplier Systems.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystems`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)

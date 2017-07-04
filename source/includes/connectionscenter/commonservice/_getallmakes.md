@@ -50,7 +50,7 @@ Retrieves all makes from the TireLibrary.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/commonservice/GetAllMakes`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)

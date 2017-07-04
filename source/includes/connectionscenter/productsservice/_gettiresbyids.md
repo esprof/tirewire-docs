@@ -33,7 +33,7 @@ Retrieves tire(s) by internal Tirelibrary IDs.
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/productsservice/GetTires`
 
-### Input Parameters
+### Request Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 AccessKey | string | [Access Key](#access-keys)
