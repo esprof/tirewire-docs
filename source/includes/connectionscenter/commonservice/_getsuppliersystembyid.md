@@ -40,17 +40,7 @@ curl -p
             <HasWheels>boolean</HasWheels>
             <HasMiscProducts>boolean</HasMiscProducts>
           </SupplierSystem>
-          <SupplierSystem>
-            <ID>int</ID>
-            <Name>string</Name>
-            <ImageURL>string</ImageURL>
-            <CredentialFields xsi:nil="true" />
-            <CanChangePassword>boolean</CanChangePassword>
-            <RequiresUserInformation>boolean</RequiresUserInformation>
-            <HasTires>boolean</HasTires>
-            <HasWheels>boolean</HasWheels>
-            <HasMiscProducts>boolean</HasMiscProducts>
-          </SupplierSystem>
+          ...
         </SupplierSystems>
       </GetSupplierSystemByIDResult>
     </GetSupplierSystemByIDResponse>

@@ -20,7 +20,7 @@ curl -p
         <ConnectionID>int</ConnectionID>
         <ProductCodes>
           <string>sting</string>
-          <string>sting</string>
+          ...
         </ProductCodes>
       </options>
     </GetTires>

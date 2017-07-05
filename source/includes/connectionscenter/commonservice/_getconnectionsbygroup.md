@@ -40,17 +40,7 @@ curl -p
             <HasWheels>boolean</HasWheels>
             <HasMiscProducts>boolean</HasMiscProducts>
           </ConnectionInformation>
-          <ConnectionInformation>
-            <Name>string</Name>
-            <WarehouseName>string</WarehouseName>
-            <SupplierSystemID>int</SupplierSystemID>
-            <TirewireConnectionID>int</TirewireConnectionID>
-            <Credentials xsi:nil="true" />
-            <Type>int</Type>
-            <HasTires>boolean</HasTires>
-            <HasWheels>boolean</HasWheels>
-            <HasMiscProducts>boolean</HasMiscProducts>
-          </ConnectionInformation>
+          ...
         </Connections>
       </GetConnectionsByGroupResult>
     </GetConnectionsByGroupResponse>

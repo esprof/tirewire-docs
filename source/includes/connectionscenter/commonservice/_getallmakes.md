@@ -33,11 +33,7 @@ curl -p
             <Name>string</Name>
             <EzytireCode>string</EzytireCode>
           </Make>
-          <Make>
-            <ID>int</ID>
-            <Name>string</Name>
-            <EzytireCode>string</EzytireCode>
-          </Make>
+          ...
         </Makes>
       </GetAllMakesResult>
     </GetAllMakesResponse>

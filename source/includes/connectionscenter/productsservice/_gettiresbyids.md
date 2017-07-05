@@ -20,7 +20,7 @@ curl -p
         <ConnectionID>int</ConnectionID>
         <IDs>
           <int>int</int>
-          <int>int</int>
+          ...
         </IDs>
       </options>
     </GetTires>
