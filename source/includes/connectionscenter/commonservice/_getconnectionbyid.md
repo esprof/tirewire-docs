@@ -59,3 +59,16 @@ Parameter | Type | Description
 key | string | [Access Key](#access-keys)
 groupToken | string | [The token for the group containing the connection](#creating-a-group)
 connectionID | int | [The ID of the connection](#get-connections-by-group-token)
+
+### Response Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+Name | string | Connection name
+WarehouseName | string | Warehouse name (where available)
+SupplierSystemID | int | Supplier system ID
+TirewireConnectionID | int | Connection ID
+Credentials | string[] | *(internal)*
+Type | int | Connection type *(internal)*
+HasTires | boolean | Has tires
+HasWheels | boolean | Has wheels
+HasMiscProducts | boolean | Has miscellaneous products (accessories, etc) 
