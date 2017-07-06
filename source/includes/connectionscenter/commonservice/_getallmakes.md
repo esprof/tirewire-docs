@@ -50,3 +50,15 @@ Retrieves all makes from the TireLibrary.
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)
+
+### Response Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+Makes | Make[] | Array of makes
+
+### Make Parameters
+Parameter | Type | Description
+--------- | ---- | -----------
+ID | int | Tirelibrary make ID
+Name | string | Make name
+EzytireCode | string | 4 letter make abbreviation for Tire Intel
