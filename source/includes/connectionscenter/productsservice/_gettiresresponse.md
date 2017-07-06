@@ -117,10 +117,13 @@
 
 The response from a successful GetTires request.
 
-### Request Parameters
+### Response Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
-Tires | Tire[] | Array of tires that successfully map to the Tirelibrary
-UnmappedTires | UnmappedTire[] | Array of tires that did not map to the Tirelibrary
+Tires | [Tire](#tire-object)[] | Array of tires that successfully map to the Tirelibrary
+UnmappedTires | [UnmappedTire](#unmappedtire-object)[]  | Array of tires that did not map to the Tirelibrary
 UnmappedCount | int | Number of unmapped tires
-LogID | int | The log
+LogID | int | The log ID *(internal)*
+LogIDs | int[] | The log IDs *(internal)*
+Message | string | Message from the supplier system
+SLogIDs | int[] | Speed log ID *(internal)*

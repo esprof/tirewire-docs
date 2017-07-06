@@ -42,7 +42,8 @@ includes:
   - connectionscenter/productsservice/_gettiresbyid
   - connectionscenter/productsservice/_gettiresbyids
   - connectionscenter/productsservice/_gettiresresponse
-#  - connectionscenter/productsservice/_location
+  - connectionscenter/productsservice/_tireobject
+  - connectionscenter/productsservice/_unmappedtireobject
 #  - connectionscenter/productsservice/_overview
 #  - connectionscenter/productsservice/_methods
 
