@@ -37,3 +37,6 @@ AccessKey | string | [Access Key](#access-keys)
 GroupToken | string | [The token for the group containing the connection](#creating-a-group)
 ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 TireSize | string | Tire size (eg. 2056515)
+
+### Response
+Returns [GetTiresResponse](#gettires-response)

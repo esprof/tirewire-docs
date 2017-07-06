@@ -41,3 +41,6 @@ ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 Width | string | Tire width (eg. 205)
 Aspect | string | Tire aspect ratio (eg. 65)
 Rim | string | Tire rim size (eg. 15)
+
+### Response
+Returns [GetTiresResponse](#gettires-response)
