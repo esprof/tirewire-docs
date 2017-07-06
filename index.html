@@ -246,11 +246,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">EzytireCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">EzytireCode</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">Make</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">EzytireCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">EzytireCode</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">Makes</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllMakesResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllMakesResponse</span>&gt;</span>
@@ -259,7 +255,7 @@
         <p>Retrieves all makes from the TireLibrary.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/GetAllMakes</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -321,7 +317,7 @@
         <p>Retrieves a Connection by ID.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionByID</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -384,17 +380,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionInformation</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionInformation</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">WarehouseName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">WarehouseName</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Credentials</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Type</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Type</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionInformation</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">Connections</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionsByGroupResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionsByGroupResponse</span>&gt;</span>
@@ -403,7 +389,7 @@
         <p>Retrieves all Connections in a given Group.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/GetConnectionsByGroup</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -461,17 +447,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystem</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystem</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ImageURL</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageURL</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">CredentialFields</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">CanChangePassword</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">CanChangePassword</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">RequiresUserInformation</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">RequiresUserInformation</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystem</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystems</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemByIDResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemByIDResponse</span>&gt;</span>
@@ -480,7 +456,7 @@
         <p>Retrieves a Supplier System by its ID.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystemByID</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -537,17 +513,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystem</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystem</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ImageURL</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageURL</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">CredentialFields</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">CanChangePassword</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">CanChangePassword</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">RequiresUserInformation</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">RequiresUserInformation</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystem</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystems</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemsResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemsResponse</span>&gt;</span>
@@ -556,7 +522,7 @@
         <p>Retrieves all Supplier Systems.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/GetSupplierSystems</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -602,7 +568,7 @@
         <p>Retrieves all Connections in a given Group.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/commonservice/ValidateGroupToken</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -651,7 +617,7 @@
         <p>Retrieves tire(s) by size.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/productsservice/GetTires</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -709,7 +675,7 @@
         <p>Retrieves tire(s) by size, specified as width, aspect ratio and rim size.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/productsservice/GetTires</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -775,7 +741,7 @@
         <p>Retrieves tire by internal Tirelibrary ID.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/productsservice/GetTires</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -825,7 +791,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">IDs</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">int</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">int</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">int</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">int</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">IDs</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
@@ -834,7 +800,7 @@
         <p>Retrieves tire(s) by internal Tirelibrary IDs.</p>
         <h3 id="soap-action">SOAP Action</h3>
         <p><code>http://ws.tirewire.com/connectionscenter/productsservice/GetTires</code></p>
-        <h3 id="input-parameters">Input Parameters</h3>
+        <h3 id="request-parameters">Request Parameters</h3>
         <table>
           <thead>
             <tr>
@@ -940,71 +906,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">FeaturesArray</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">BenefitsArray</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">Tire</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">Tire</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCode</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientName</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">BuyPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">BuyPrice</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SellPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">SellPrice</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">QuantitySecondary</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">QuantitySecondary</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Quantities</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Make</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MakeID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">MakeID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Pattern</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Pattern</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">PatternID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">PatternID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SizeID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SizeID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ImageURL</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageURL</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Width</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Width</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">AspectRatio</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">AspectRatio</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Rim</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Rim</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">InchWidth</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">InchWidth</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Diameter</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Diameter</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MetricRim</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">MetricRim</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Weight</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Weight</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SpeedRating</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SpeedRating</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">LoadRating</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRating</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">PlyRating</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">PlyRating</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">UTQG</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">UTQG</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">LoadCapacity</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LoadCapacity</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">InflationPressure</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">InflationPressure</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Sidewall</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Sidewall</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">LoadRange</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRange</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ApprovedRimWidth</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ApprovedRimWidth</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MeasuringRimWidth</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">MeasuringRimWidth</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SectionWidth</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SectionWidth</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MeasuredOD</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">MeasuredOD</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">TreadDepth</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">TreadDepth</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">RevsPerMile</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">RevsPerMile</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MaxLoadSingle</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">MaxLoadSingle</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MaxLoadDual</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">MaxLoadDual</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Features</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Features</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Benefits</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Benefits</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Has360Image</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">Has360Image</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MaxInflationPressure</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">MaxInflationPressure</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">IsSpecial</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">IsSpecial</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Warranty</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Warranty</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">TireClasses</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Programs</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">TireMake</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientDescription</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientDescription</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">GMProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GMProductCode</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">GBB</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">GBB</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ItemFlag</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ItemFlag</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">unusedlw</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">unusedlw</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">unusedmd</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">unusedmd</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">unusedhg</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">unusedhg</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">unusedsp</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">unusedsp</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">FeaturesArray</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">BenefitsArray</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">Tire</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">Tires</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTire</span>&gt;</span>
@@ -1030,29 +932,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">Programs</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">TireClasses</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">UnmappedTire</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTire</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientMake</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientMake</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientMakeAbbreviation</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientMakeAbbreviation</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientMakeID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ClientMakeID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ClientDescription</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientDescription</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCode</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Make</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">MakeID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">MakeID</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">PlyRating</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">PlyRating</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">BuyPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">BuyPrice</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">SellPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">SellPrice</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">QuantitySecondary</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">QuantitySecondary</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Quantities</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">IsSpecial</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">IsSpecial</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">GBB</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">GBB</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">ItemFlag</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ItemFlag</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">Programs</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-            <span class="hljs-tag">&lt;<span class="hljs-name">TireClasses</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
-          <span class="hljs-tag">&lt;/<span class="hljs-name">UnmappedTire</span>&gt;</span>
+          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">UnmappedTires</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedCount</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">UnmappedCount</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">LogID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">LogID</span>&gt;</span>
@@ -1065,7 +945,504 @@
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetTiresResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTiresResponse</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre> </div>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetTires request.</p>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedCount</td>
+              <td>int</td>
+              <td>Number of unmapped tires</td>
+            </tr>
+            <tr>
+              <td>LogID</td>
+              <td>int</td>
+              <td>The log ID <em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>LogIDs</td>
+              <td>int[]</td>
+              <td>The log IDs <em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Message</td>
+              <td>string</td>
+              <td>Message from the supplier system</td>
+            </tr>
+            <tr>
+              <td>SLogIDs</td>
+              <td>int[]</td>
+              <td>Speed log ID <em>(internal)</em></td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="tire-object">Tire Object</h2>
+        <p>Mapped tire with data from the Tirelibrary</p>
+        <h3 id="object-parameters">Object Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Tirelibrary tire ID</td>
+            </tr>
+            <tr>
+              <td>ProductCode</td>
+              <td>string</td>
+              <td>Manufacturer product code from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>ClientProductCode</td>
+              <td>string</td>
+              <td>Product code from supplier system</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Product name from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>ClientName</td>
+              <td>string</td>
+              <td>Product name from supplier system</td>
+            </tr>
+            <tr>
+              <td>BuyPrice</td>
+              <td>decimal</td>
+              <td>Buy price from supplier system</td>
+            </tr>
+            <tr>
+              <td>SellPrice</td>
+              <td>decimal</td>
+              <td>Sell price either from supplier system (if available) or marked up from buy price (if markups set)</td>
+            </tr>
+            <tr>
+              <td>Tax</td>
+              <td>decimal</td>
+              <td>FET value from supplier system (if available)</td>
+            </tr>
+            <tr>
+              <td>Quantity</td>
+              <td>int</td>
+              <td>Primary stock quantity</td>
+            </tr>
+            <tr>
+              <td>QuantitySecondary</td>
+              <td>int</td>
+              <td>Secondary stock quantity</td>
+            </tr>
+            <tr>
+              <td>Quantities</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Make</td>
+              <td>string</td>
+              <td>Make name from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MakeID</td>
+              <td>int</td>
+              <td>Tirelibrary make ID</td>
+            </tr>
+            <tr>
+              <td>Pattern</td>
+              <td>string</td>
+              <td>Pattern name from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>PatternID</td>
+              <td>int</td>
+              <td>Tirelibrary pattern ID</td>
+            </tr>
+            <tr>
+              <td>Description</td>
+              <td>string</td>
+              <td>Description from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>SizeID</td>
+              <td>int</td>
+              <td>Tirelibrary size ID</td>
+            </tr>
+            <tr>
+              <td>ImageURL</td>
+              <td>string</td>
+              <td>Tire image URL from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>Width</td>
+              <td>double</td>
+              <td>Width (mm)</td>
+            </tr>
+            <tr>
+              <td>AspectRatio</td>
+              <td>double</td>
+              <td>Aspect Ratio (%)</td>
+            </tr>
+            <tr>
+              <td>Rim</td>
+              <td>double</td>
+              <td>Rim Size (inch)</td>
+            </tr>
+            <tr>
+              <td>InchWidth</td>
+              <td>double</td>
+              <td>Inch Width (inch)</td>
+            </tr>
+            <tr>
+              <td>Diameter</td>
+              <td>double</td>
+              <td>Diameter (inch)</td>
+            </tr>
+            <tr>
+              <td>MetricRim</td>
+              <td>double</td>
+              <td>Metric Rim Diameter (mm)</td>
+            </tr>
+            <tr>
+              <td>Weight</td>
+              <td>double</td>
+              <td>Weight (lbs)</td>
+            </tr>
+            <tr>
+              <td>SpeedRating</td>
+              <td>string</td>
+              <td>Speed Rating</td>
+            </tr>
+            <tr>
+              <td>LoadRating</td>
+              <td>string</td>
+              <td>Load Rating (Single/Double)</td>
+            </tr>
+            <tr>
+              <td>PlyRating</td>
+              <td>string</td>
+              <td>Ply Rating</td>
+            </tr>
+            <tr>
+              <td>UTQG</td>
+              <td>string</td>
+              <td>UTQG</td>
+            </tr>
+            <tr>
+              <td>LoadCapacity</td>
+              <td>string</td>
+              <td>Load Capacity (lbs)</td>
+            </tr>
+            <tr>
+              <td>InflationPressure</td>
+              <td>double</td>
+              <td>Inflation Pressure (psi)</td>
+            </tr>
+            <tr>
+              <td>Sidewall</td>
+              <td>string</td>
+              <td>Sidewall</td>
+            </tr>
+            <tr>
+              <td>LoadRange</td>
+              <td>string</td>
+              <td>Load Range</td>
+            </tr>
+            <tr>
+              <td>ApprovedRimWidth</td>
+              <td>string</td>
+              <td>Approved Rim Width (inch)</td>
+            </tr>
+            <tr>
+              <td>MeasuringRimWidth</td>
+              <td>string</td>
+              <td>Measuring Rim Width (inch)</td>
+            </tr>
+            <tr>
+              <td>SectionWidth</td>
+              <td>string</td>
+              <td>Section Width</td>
+            </tr>
+            <tr>
+              <td>MeasuredOD</td>
+              <td>string</td>
+              <td>Overall Diameter (inch)</td>
+            </tr>
+            <tr>
+              <td>TreadDepth</td>
+              <td>string</td>
+              <td>Tread Depth (1/32&quot;)</td>
+            </tr>
+            <tr>
+              <td>RevsPerMile</td>
+              <td>string</td>
+              <td>Revolutions Per Mile</td>
+            </tr>
+            <tr>
+              <td>MaxLoadSingle</td>
+              <td>string</td>
+              <td>Load Capacity Single (lbs)</td>
+            </tr>
+            <tr>
+              <td>MaxLoadDual</td>
+              <td>string</td>
+              <td>Load Capacity Dual (lbs)</td>
+            </tr>
+            <tr>
+              <td>Features</td>
+              <td>string</td>
+              <td>Features</td>
+            </tr>
+            <tr>
+              <td>Benefits</td>
+              <td>string</td>
+              <td>Benefits</td>
+            </tr>
+            <tr>
+              <td>Has360Image</td>
+              <td>boolean</td>
+              <td>Has 360 degree tire images</td>
+            </tr>
+            <tr>
+              <td>MaxInflationPressure</td>
+              <td>string</td>
+              <td>Max Inflation Pressure</td>
+            </tr>
+            <tr>
+              <td>IsSpecial</td>
+              <td>boolean</td>
+              <td>Is special pricing</td>
+            </tr>
+            <tr>
+              <td>Warranty</td>
+              <td>boolean</td>
+              <td>Warranty (miles)</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Supplier system ID</td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>TireClasses</td>
+              <td>TireClass[]</td>
+              <td>Classes that provide a general grouping for tires</td>
+            </tr>
+            <tr>
+              <td>Programs</td>
+              <td>TireProgram[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>TireMake</td>
+              <td>TireMake</td>
+              <td>Tire make information (ID, Name, Image URL)</td>
+            </tr>
+            <tr>
+              <td>ClientDescription</td>
+              <td>string</td>
+              <td>Description from supplier system</td>
+            </tr>
+            <tr>
+              <td>GMProductCode</td>
+              <td>string</td>
+              <td>GM product code</td>
+            </tr>
+            <tr>
+              <td>GBB</td>
+              <td>int</td>
+              <td>Good Better Best (1 = Good, 2 = Better, 3 = Best, -1 Default)</td>
+            </tr>
+            <tr>
+              <td>ItemFlag</td>
+              <td>int</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>unusedlw</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>unusedmd</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>unusedhg</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>unusedsp</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>FeaturesArray</td>
+              <td>string[]</td>
+              <td>Features (separated out by line)</td>
+            </tr>
+            <tr>
+              <td>BenefitsArray</td>
+              <td>string[]</td>
+              <td>Benefits (separated out by line)</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="unmappedtire-object">UnmappedTire Object</h2>
+        <p>Unmapped tire when a match could not be made to the Tirelibrary</p>
+        <h3 id="object-parameters">Object Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ClientProductCode</td>
+              <td>string</td>
+              <td>Product code from supplier system</td>
+            </tr>
+            <tr>
+              <td>ClientMake</td>
+              <td>string</td>
+              <td>Make name from supplier system</td>
+            </tr>
+            <tr>
+              <td>ClientMakeAbbreviation</td>
+              <td>string</td>
+              <td>Make abbreviation from supplier system</td>
+            </tr>
+            <tr>
+              <td>ClientMakeID</td>
+              <td>int</td>
+              <td>Make ID from suppler system</td>
+            </tr>
+            <tr>
+              <td>ClientDescription</td>
+              <td>string</td>
+              <td>Description from supplier system</td>
+            </tr>
+            <tr>
+              <td>ProductCode</td>
+              <td>string</td>
+              <td>Product code</td>
+            </tr>
+            <tr>
+              <td>Make</td>
+              <td>string</td>
+              <td>Make name from Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MakeID</td>
+              <td>int</td>
+              <td>Tirelibrary make ID</td>
+            </tr>
+            <tr>
+              <td>PlyRating</td>
+              <td>string</td>
+              <td>Ply Rating</td>
+            </tr>
+            <tr>
+              <td>BuyPrice</td>
+              <td>decimal</td>
+              <td>Buy price from supplier system</td>
+            </tr>
+            <tr>
+              <td>SellPrice</td>
+              <td>decimal</td>
+              <td>Sell price either from supplier system (if available) or marked up from buy price (if markups set)</td>
+            </tr>
+            <tr>
+              <td>Tax</td>
+              <td>decimal</td>
+              <td>FET value from supplier system (if available)</td>
+            </tr>
+            <tr>
+              <td>Quantity</td>
+              <td>int</td>
+              <td>Primary stock quantity</td>
+            </tr>
+            <tr>
+              <td>QuantitySecondary</td>
+              <td>int</td>
+              <td>Secondary stock quantity</td>
+            </tr>
+            <tr>
+              <td>Quantities</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>IsSpecial</td>
+              <td>boolean</td>
+              <td>Is special pricing</td>
+            </tr>
+            <tr>
+              <td>GBB</td>
+              <td>int</td>
+              <td>Good Better Best (1 = Good, 2 = Better, 3 = Best, -1 Default)</td>
+            </tr>
+            <tr>
+              <td>ItemFlag</td>
+              <td>int</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Programs</td>
+              <td>TireProgram[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>TireClasses</td>
+              <td>TireClass[]</td>
+              <td>Classes that provide a general grouping for tires</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
       <div class="dark-box">
         <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="CSharp">CSharp</a> </div>
       </div>
