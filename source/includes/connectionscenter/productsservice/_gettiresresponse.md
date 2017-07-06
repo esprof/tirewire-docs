@@ -126,4 +126,4 @@ UnmappedCount | int | Number of unmapped tires
 LogID | int | The log ID *(internal)*
 LogIDs | int[] | The log IDs *(internal)*
 Message | string | Message from the supplier system
-SLogIDs | int[] | Speed log ID *(internal)*
+SLogID | guid | Speed log ID *(internal)*
