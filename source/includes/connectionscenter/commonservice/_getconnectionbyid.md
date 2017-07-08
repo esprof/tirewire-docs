@@ -61,6 +61,8 @@ groupToken | string | [The token for the group containing the connection](#creat
 connectionID | int | [The ID of the connection](#get-connections-by-group-token)
 
 ### Response Parameters
+A ConnectionInformation object.
+
 Parameter | Type | Description
 --------- | ---- | -----------
 Name | string | Connection name
@@ -71,4 +73,4 @@ Credentials | string[] | *(internal)*
 Type | int | Connection type *(internal)*
 HasTires | boolean | Has tires
 HasWheels | boolean | Has wheels
-HasMiscProducts | boolean | Has miscellaneous products (accessories, etc) 
+HasMiscProducts | boolean | Has miscellaneous products (accessories, etc)

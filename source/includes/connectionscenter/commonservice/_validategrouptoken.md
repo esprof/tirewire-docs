@@ -41,3 +41,9 @@ Retrieves all Connections in a given Group.
 Parameter | Type | Description
 --------- | ---- | -----------
 groupToken | string | [The token for the group](#creating-a-group)
+
+### Response Parameters
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ValidateGroupTokenResult | boolean | True if the group token is valid

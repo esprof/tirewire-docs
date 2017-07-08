@@ -40,7 +40,6 @@ curl -p
             <HasWheels>boolean</HasWheels>
             <HasMiscProducts>boolean</HasMiscProducts>
           </SupplierSystem>
-          ...
         </SupplierSystems>
       </GetSupplierSystemByIDResult>
     </GetSupplierSystemByIDResponse>
@@ -58,3 +57,18 @@ Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)
 id | int | The ID of the supplier system
+
+### Response Parameters
+A SupplierSystem object.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ID | int | Supplier system ID
+Name | string | Supplier system name
+ImageURL | string | Supplier system logo image URL
+CredentialFields | string[] | *(internal)*
+CanChangePassword | boolean | *(internal)*
+RequiresUserInformation | boolean | *(internal)*
+HasTires | boolean | Has tires
+HasWheels | boolean | Has wheels
+HasMiscProducts | boolean | Has miscellaneous products (accessories, etc)

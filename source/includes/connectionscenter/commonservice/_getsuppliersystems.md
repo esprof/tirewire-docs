@@ -56,3 +56,18 @@ Retrieves all Supplier Systems.
 Parameter | Type | Description
 --------- | ---- | -----------
 key | string | [Access Key](#access-keys)
+
+### Response Parameters
+An array of SupplierSystem objects.
+
+Parameter | Type | Description
+--------- | ---- | -----------
+ID | int | Supplier system ID
+Name | string | Supplier system name
+ImageURL | string | Supplier system logo image URL
+CredentialFields | string[] | *(internal)*
+CanChangePassword | boolean | *(internal)*
+RequiresUserInformation | boolean | *(internal)*
+HasTires | boolean | Has tires
+HasWheels | boolean | Has wheels
+HasMiscProducts | boolean | Has miscellaneous products (accessories, etc)

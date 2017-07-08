@@ -52,11 +52,8 @@ Parameter | Type | Description
 key | string | [Access Key](#access-keys)
 
 ### Response Parameters
-Parameter | Type | Description
---------- | ---- | -----------
-Makes | Make[] | Array of makes
+An array of Make objects.
 
-### Make Parameters
 Parameter | Type | Description
 --------- | ---- | -----------
 ID | int | Tirelibrary make ID
