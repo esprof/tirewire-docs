@@ -224,7 +224,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -234,7 +234,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -272,6 +272,34 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Make objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Tirelibrary make ID</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Make name</td>
+            </tr>
+            <tr>
+              <td>EzytireCode</td>
+              <td>string</td>
+              <td>4 letter make abbreviation for Tire Intel</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="getconnectionbyid">GetConnectionByID</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -279,7 +307,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -291,7 +319,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -344,6 +372,64 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>A ConnectionInformation object.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Connection name</td>
+            </tr>
+            <tr>
+              <td>WarehouseName</td>
+              <td>string</td>
+              <td>Warehouse name (where available)</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Supplier system ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>Credentials</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Type</td>
+              <td>int</td>
+              <td>Connection type <em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>HasTires</td>
+              <td>boolean</td>
+              <td>Has tires</td>
+            </tr>
+            <tr>
+              <td>HasWheels</td>
+              <td>boolean</td>
+              <td>Has wheels</td>
+            </tr>
+            <tr>
+              <td>HasMiscProducts</td>
+              <td>boolean</td>
+              <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="getconnectionsbygroup">GetConnectionsByGroup</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -351,7 +437,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -362,7 +448,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -411,6 +497,64 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of ConnectionInformation objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Connection name</td>
+            </tr>
+            <tr>
+              <td>WarehouseName</td>
+              <td>string</td>
+              <td>Warehouse name (where available)</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Supplier system ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>Credentials</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>Type</td>
+              <td>int</td>
+              <td>Connection type <em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>HasTires</td>
+              <td>boolean</td>
+              <td>Has tires</td>
+            </tr>
+            <tr>
+              <td>HasWheels</td>
+              <td>boolean</td>
+              <td>Has wheels</td>
+            </tr>
+            <tr>
+              <td>HasMiscProducts</td>
+              <td>boolean</td>
+              <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="getsuppliersystembyid">GetSupplierSystemByID</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -418,7 +562,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -429,7 +573,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -447,7 +591,6 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystem</span>&gt;</span>
-          ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystems</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemByIDResult</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetSupplierSystemByIDResponse</span>&gt;</span>
@@ -478,6 +621,64 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>A SupplierSystem object.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Supplier system ID</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Supplier system name</td>
+            </tr>
+            <tr>
+              <td>ImageURL</td>
+              <td>string</td>
+              <td>Supplier system logo image URL</td>
+            </tr>
+            <tr>
+              <td>CredentialFields</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>CanChangePassword</td>
+              <td>boolean</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>RequiresUserInformation</td>
+              <td>boolean</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>HasTires</td>
+              <td>boolean</td>
+              <td>Has tires</td>
+            </tr>
+            <tr>
+              <td>HasWheels</td>
+              <td>boolean</td>
+              <td>Has wheels</td>
+            </tr>
+            <tr>
+              <td>HasMiscProducts</td>
+              <td>boolean</td>
+              <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="getsuppliersystems">GetSupplierSystems</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -485,7 +686,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -495,7 +696,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -539,6 +740,64 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of SupplierSystem objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Supplier system ID</td>
+            </tr>
+            <tr>
+              <td>Name</td>
+              <td>string</td>
+              <td>Supplier system name</td>
+            </tr>
+            <tr>
+              <td>ImageURL</td>
+              <td>string</td>
+              <td>Supplier system logo image URL</td>
+            </tr>
+            <tr>
+              <td>CredentialFields</td>
+              <td>string[]</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>CanChangePassword</td>
+              <td>boolean</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>RequiresUserInformation</td>
+              <td>boolean</td>
+              <td><em>(internal)</em></td>
+            </tr>
+            <tr>
+              <td>HasTires</td>
+              <td>boolean</td>
+              <td>Has tires</td>
+            </tr>
+            <tr>
+              <td>HasWheels</td>
+              <td>boolean</td>
+              <td>Has wheels</td>
+            </tr>
+            <tr>
+              <td>HasMiscProducts</td>
+              <td>boolean</td>
+              <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+          </tbody>
+        </table>
         <h2 id="validategrouptoken">ValidateGroupToken</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -546,7 +805,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/commonservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -556,7 +815,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -585,6 +844,23 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ValidateGroupTokenResult</td>
+              <td>boolean</td>
+              <td>True if the group token is valid</td>
+            </tr>
+          </tbody>
+        </table>
         <h1 id="products-web-service">Products Web Service</h1>
         <p>The Products Web Service contains methods related to retrieving pricing and inventory.</p>
         <h3 id="url">URL</h3>
@@ -600,7 +876,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/productsservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -649,6 +925,8 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#gettires-response">GetTiresResponse</a></p>
         <h2 id="gettires-by-width-aspect-rim-">GetTires (By Width, Aspect &amp; Rim)</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -656,7 +934,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/productsservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -717,6 +995,8 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#gettires-response">GetTiresResponse</a></p>
         <h2 id="gettires-by-id-">GetTires (By ID)</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -724,7 +1004,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/productsservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -773,6 +1053,8 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#gettires-response">GetTiresResponse</a></p>
         <h2 id="gettires-by-ids-">GetTires (By IDs)</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -780,7 +1062,7 @@
   -d @request.xml
   http://ws.tirewire.com/connectionscenter/productsservice.asmx &gt; response.xml</code></pre>
         <blockquote>
-          <p>SOAP request.xml</p>
+          <p>Request XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -832,9 +1114,11 @@
             </tr>
           </tbody>
         </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#gettires-response">GetTiresResponse</a></p>
         <h2 id="gettires-response">GetTires Response</h2>
         <blockquote>
-          <p>SOAP response.xml</p>
+          <p>Response XML</p>
         </blockquote>
         <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -988,8 +1272,8 @@
               <td>Message from the supplier system</td>
             </tr>
             <tr>
-              <td>SLogIDs</td>
-              <td>int[]</td>
+              <td>SLogID</td>
+              <td>guid</td>
               <td>Speed log ID <em>(internal)</em></td>
             </tr>
           </tbody>
