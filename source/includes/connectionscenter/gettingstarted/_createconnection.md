@@ -28,6 +28,6 @@ Press OK again when the above dialog shows up.
 
 The message down the bottom of the screen about the credit card can be ignored, as this is just a test connection.
 
-Now that we the connection is created, we can retrieve the connection ID to use in web services. To do this, click on the connection and the ID will be shown in the top-right corner:
+Now that the connection is created, we can retrieve the connection ID to use in web services. To do this, click on the connection and the ID will be shown in the top-right corner:
 
 <img src="images/connectionscenter/gettingstarted/createconnection5.png">
