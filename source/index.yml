@@ -39,6 +39,9 @@ includes:
   - connectionscenter/productsservice/_productsservice
   - connectionscenter/productsservice/_gettiresbysize
   - connectionscenter/productsservice/_gettiresbywar
+  - connectionscenter/productsservice/_gettiresbypc
+  - connectionscenter/productsservice/_gettiresbypcs
+  - connectionscenter/productsservice/_gettiresbycpcs
   - connectionscenter/productsservice/_gettiresbyid
   - connectionscenter/productsservice/_gettiresbyids
   - connectionscenter/productsservice/_gettiresresponse
