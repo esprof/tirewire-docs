@@ -8,7 +8,7 @@ curl -p
   http://ws.tirewire.com/connectionscenter/productsservice.asmx > response.xml
 ```
 
-> request.xml
+> Request XML
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:prod="http://ws.tirewire.com/connectionscenter/productsservice">

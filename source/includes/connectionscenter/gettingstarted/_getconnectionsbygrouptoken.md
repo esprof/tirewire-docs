@@ -8,7 +8,7 @@ curl -p
   http://ws.tirewire.com/connectionscenter/commonservice.asmx > response.xml
 ```
 
-> request.xml
+> Request XML
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -21,7 +21,7 @@ curl -p
 </soap:Envelope>
 ```
 
-> response.xml
+> Response XML
 
 ```xml
 <soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
