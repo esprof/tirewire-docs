@@ -1,7 +1,4 @@
-
-### Response
-Returns [GetTiresResponse](#gettires-response)
-## GetTires (By Product Codes)
+## GetTires (Product Codes)
 
 ```shell
 curl -p
@@ -22,7 +19,7 @@ curl -p
         <GroupToken>string</GroupToken>
         <ConnectionID>int</ConnectionID>
         <ProductCodes>
-          <string>sting</string>
+          <string>string</string>
           ...
         </ProductCodes>
       </options>
@@ -42,7 +39,7 @@ Parameter | Type | Description
 AccessKey | string | [Access Key](#access-keys)
 GroupToken | string | [The token for the group containing the connection](#creating-a-group)
 ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
-ProductCodes | string[] | Manufacturer product code
+ProductCodes | string[] | Manufacturer product codes
 
 ### Response
 Returns [GetTiresResponse](#gettires-response)

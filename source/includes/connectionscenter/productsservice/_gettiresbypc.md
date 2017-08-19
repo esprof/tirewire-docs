@@ -1,4 +1,4 @@
-## GetTires (By Product Code)
+## GetTires (Product Code)
 
 ```shell
 curl -p

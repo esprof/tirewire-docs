@@ -1,4 +1,4 @@
-## GetTires (By ID)
+## GetTires (ID)
 
 ```shell
 curl -p

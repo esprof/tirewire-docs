@@ -1,4 +1,4 @@
-## GetTires (By Size)
+## GetTires (Size)
 
 ```shell
 curl -p

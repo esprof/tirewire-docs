@@ -1,4 +1,4 @@
-## GetTires (By Width, Aspect & Rim)
+## GetTires (Width, Aspect & Rim)
 
 ```shell
 curl -p
