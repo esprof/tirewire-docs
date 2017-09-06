@@ -23,6 +23,7 @@ Quantities | string[] | *(internal)*
 IsSpecial | boolean | Is special pricing
 GBB | int | Good Better Best (1 = Good, 2 = Better, 3 = Best, -1 Default)
 ItemFlag | int | *(internal)*
+ConnectionID | int | Connection ID
 Notes | string | *(internal)*
 Programs | TireProgram[] | *(internal)*
 TireClasses | TireClass[] | Classes that provide a general grouping for tires

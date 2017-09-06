@@ -95,6 +95,7 @@
             <IsSpecial>boolean</IsSpecial>
             <GBB>int</GBB>
             <ItemFlag>int</ItemFlag>
+            <ConnectionID>int</ConnectionID>
             <Notes>string</Notes>
             <Programs xsi:nil="true" />
             <TireClasses xsi:nil="true" />
