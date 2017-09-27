@@ -40,6 +40,7 @@ curl -p
             <HasTires>boolean</HasTires>
             <HasWheels>boolean</HasWheels>
             <HasMiscProducts>boolean</HasMiscProducts>
+            <MappingPackageID>int</MappingPackageID>
           </ConnectionInformation>
         </Connections>
       </GetConnectionByIDResult>
@@ -74,3 +75,4 @@ Type | int | Connection type *(internal)*
 HasTires | boolean | Has tires
 HasWheels | boolean | Has wheels
 HasMiscProducts | boolean | Has miscellaneous products (accessories, etc)
+MappingPackageID | int | Tire Library mapping package ID (-1 if not set or unsupported)
