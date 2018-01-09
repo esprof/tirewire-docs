@@ -31,6 +31,7 @@ curl -p
         <Connections>
           <ConnectionInformation>
             <Name>string</Name>
+            <Active>boolean</Active>
             <WarehouseName>string</WarehouseName>
             <SupplierSystemID>int</SupplierSystemID>
             <TirewireConnectionID>int</TirewireConnectionID>
@@ -66,6 +67,7 @@ An array of ConnectionInformation objects.
 Parameter | Type | Description
 --------- | ---- | -----------
 Name | string | Connection name
+Active | boolean | Has the connection been activated
 WarehouseName | string | Warehouse name (where available)
 SupplierSystemID | int | Supplier system ID
 TirewireConnectionID | int | Connection ID
