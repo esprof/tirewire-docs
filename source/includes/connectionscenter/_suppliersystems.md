@@ -1,26 +1,28 @@
 ## Supplier Systems
 Supplier Systems which the Connections Center can provide access to include the following:
 
-  * Aftersoft
   * ASA TireMaster
   * ASA TireMaster Enterprise
+  * ASA TireMaster GTX
   * ATD
   * Atturo
   * Barron's Wholesale Tire
+  * Capital Tire
   * Carroll Tire Online
-  * Dealer Connect
-  * Express Tire Delivery
+  * Exxpress Tire Delivery
   * Freedomsoft
   * Jack Williams Tire
   * JMK
-  * K & M Tire
+  * K&M Tire
   * Kauffman Tire
   * MaddenCo
+  * MAM Software
   * Max Finkelstein
   * National Tire Online
   * Sullivan Tire
   * TCI Tire Centers
+  * Tire Data Connect
   * Tireweb
   * TreadConnect
   * U.S. AutoForce
-  * Van Kleeck's Tire
+  
