@@ -42,7 +42,7 @@ AccessKey | string | [Access Key](#access-keys)
 GroupToken | string | [The token for the group containing the connection](#creating-a-group)
 ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 IDs | int[] | Internal Tirelibrary IDs
-DetailLevel | int | *(optional)* Level of additional data to retrieve from Tire Library (0 = Minimum, 6 = Standard, 10 = All)
+DetailLevel | int | *(optional)* Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)
 ApplyTirewireMarkups | boolean | *(optional)* Apply Tirewire markups to BuyPrice for display as SellPrice
 
 ### Response
