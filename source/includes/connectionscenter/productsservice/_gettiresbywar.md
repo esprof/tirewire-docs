@@ -21,6 +21,8 @@ curl -p
         <Width>string</Width>
         <Aspect>string</Aspect>
         <Rim>string</Rim>
+        <DetailLevel>int</DetailLevel>
+        <ApplyTirewireMarkups>boolean</ApplyTirewireMarkups>
       </options>
     </GetTires>
   </soap:Body>
@@ -41,6 +43,8 @@ ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 Width | string | Tire width (eg. 205)
 Aspect | string | Tire aspect ratio (eg. 65)
 Rim | string | Tire rim size (eg. 15)
+DetailLevel | int | *(optional)* Level of additional data to retrieve from Tire Library (0 = Minimum, 6 = Standard, 10 = All)
+ApplyTirewireMarkups | boolean | *(optional)* Apply Tirewire markups to BuyPrice for display as SellPrice
 
 ### Response
 Returns [GetTiresResponse](#gettires-response)

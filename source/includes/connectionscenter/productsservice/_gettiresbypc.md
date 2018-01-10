@@ -19,6 +19,8 @@ curl -p
         <GroupToken>string</GroupToken>
         <ConnectionID>int</ConnectionID>
         <ProductCode>string</ProductCode>
+        <DetailLevel>int</DetailLevel>
+        <ApplyTirewireMarkups>boolean</ApplyTirewireMarkups>
       </options>
     </GetTires>
   </soap:Body>
@@ -37,6 +39,8 @@ AccessKey | string | [Access Key](#access-keys)
 GroupToken | string | [The token for the group containing the connection](#creating-a-group)
 ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 ProductCode | string | Manufacturer product code
+DetailLevel | int | *(optional)* Level of additional data to retrieve from Tire Library (0 = Minimum, 6 = Standard, 10 = All)
+ApplyTirewireMarkups | boolean | *(optional)* Apply Tirewire markups to BuyPrice for display as SellPrice
 
 ### Response
 Returns [GetTiresResponse](#gettires-response)
