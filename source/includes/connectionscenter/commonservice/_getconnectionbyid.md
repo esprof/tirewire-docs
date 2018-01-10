@@ -73,7 +73,7 @@ WarehouseName | string | Warehouse name (where available)
 SupplierSystemID | int | Supplier system ID
 TirewireConnectionID | int | Connection ID
 Credentials | string[] | *(internal)*
-Type | int | Connection type *(internal)*
+Type | int | *(internal)* Connection type
 HasTires | boolean | Has tires
 HasWheels | boolean | Has wheels
 HasMiscProducts | boolean | Has miscellaneous products (accessories, etc)
