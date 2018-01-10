@@ -12,14 +12,14 @@
     <script src="javascripts/all.js" type="text/javascript"></script>
   </head>
 
-  <body class="" data-languages="[&#34;shell&#34;,&#34;CSharp&#34;]"> <a href="#" id="nav-button">
+  <body class="" data-languages="[&#34;shell&#34;,&#34;csharp&#34;]"> <a href="#" id="nav-button">
       <span>
         NAV
         <img alt="undefined" class="undefined" src="images/navbar.png">
       </span>
     </a>
     <div class="tocify-wrapper"> <img alt="undefined" class="undefined" src="images/logo.png">
-      <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="CSharp">CSharp</a> </div>
+      <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="csharp">C#</a> </div>
       <div class="search"> <input type="text" class="search" id="input-search" placeholder="Search"> </div>
       <ul class="search-results"></ul>
       <div id="toc"> </div>
@@ -41,29 +41,30 @@
         <h2 id="supplier-systems">Supplier Systems</h2>
         <p>Supplier Systems which the Connections Center can provide access to include the following:</p>
         <ul>
-          <li>Aftersoft</li>
           <li>ASA TireMaster</li>
           <li>ASA TireMaster Enterprise</li>
+          <li>ASA TireMaster GTX</li>
           <li>ATD</li>
           <li>Atturo</li>
           <li>Barron&#39;s Wholesale Tire</li>
+          <li>Capital Tire</li>
           <li>Carroll Tire Online</li>
-          <li>Dealer Connect</li>
-          <li>Express Tire Delivery</li>
+          <li>Exxpress Tire Delivery</li>
           <li>Freedomsoft</li>
           <li>Jack Williams Tire</li>
           <li>JMK</li>
-          <li>K &amp; M Tire</li>
+          <li>K&amp;M Tire</li>
           <li>Kauffman Tire</li>
           <li>MaddenCo</li>
+          <li>MAM Software</li>
           <li>Max Finkelstein</li>
           <li>National Tire Online</li>
           <li>Sullivan Tire</li>
           <li>TCI Tire Centers</li>
+          <li>Tire Data Connect</li>
           <li>Tireweb</li>
           <li>TreadConnect</li>
           <li>U.S. AutoForce</li>
-          <li>Van Kleeck&#39;s Tire</li>
         </ul>
         <h2 id="access-keys">Access Keys</h2>
         <p>Access to each of the Connections Center Web Services requires an Access Key (or API Key), provided by Tirewire. The Access Key identifies and authenticates you to the Connections Center and must be provided with each Web Service method request.</p>
@@ -330,6 +331,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">Connections</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionInformation</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Active</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">Active</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">WarehouseName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">WarehouseName</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
@@ -338,6 +340,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MappingPackageID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">MappingPackageID</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionInformation</span>&gt;</span>
         <span class="hljs-tag">&lt;/<span class="hljs-name">Connections</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">GetConnectionByIDResult</span>&gt;</span>
@@ -391,6 +394,11 @@
               <td>Connection name</td>
             </tr>
             <tr>
+              <td>Active</td>
+              <td>boolean</td>
+              <td>Has the connection been activated</td>
+            </tr>
+            <tr>
               <td>WarehouseName</td>
               <td>string</td>
               <td>Warehouse name (where available)</td>
@@ -413,7 +421,7 @@
             <tr>
               <td>Type</td>
               <td>int</td>
-              <td>Connection type <em>(internal)</em></td>
+              <td><em>(internal)</em> Connection type</td>
             </tr>
             <tr>
               <td>HasTires</td>
@@ -429,6 +437,11 @@
               <td>HasMiscProducts</td>
               <td>boolean</td>
               <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+            <tr>
+              <td>MappingPackageID</td>
+              <td>int</td>
+              <td>Tire Library mapping package ID (-1 if not set or unsupported)</td>
             </tr>
           </tbody>
         </table>
@@ -459,6 +472,7 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">Connections</span>&gt;</span>
           <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionInformation</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Active</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">Active</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">WarehouseName</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">WarehouseName</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
@@ -467,6 +481,7 @@
             <span class="hljs-tag">&lt;<span class="hljs-name">HasTires</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasTires</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasWheels</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasWheels</span>&gt;</span>
             <span class="hljs-tag">&lt;<span class="hljs-name">HasMiscProducts</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasMiscProducts</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MappingPackageID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">MappingPackageID</span>&gt;</span>
           <span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionInformation</span>&gt;</span>
           ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">Connections</span>&gt;</span>
@@ -516,6 +531,11 @@
               <td>Connection name</td>
             </tr>
             <tr>
+              <td>Active</td>
+              <td>boolean</td>
+              <td>Has the connection been activated</td>
+            </tr>
+            <tr>
               <td>WarehouseName</td>
               <td>string</td>
               <td>Warehouse name (where available)</td>
@@ -538,7 +558,7 @@
             <tr>
               <td>Type</td>
               <td>int</td>
-              <td>Connection type <em>(internal)</em></td>
+              <td><em>(internal)</em> Connection type</td>
             </tr>
             <tr>
               <td>HasTires</td>
@@ -554,6 +574,11 @@
               <td>HasMiscProducts</td>
               <td>boolean</td>
               <td>Has miscellaneous products (accessories, etc)</td>
+            </tr>
+            <tr>
+              <td>MappingPackageID</td>
+              <td>int</td>
+              <td>Tire Library mapping package ID (-1 if not set or unsupported)</td>
             </tr>
           </tbody>
         </table>
@@ -888,6 +913,8 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">TireSize</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">TireSize</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -925,6 +952,16 @@
               <td>string</td>
               <td>Tire size (eg. 2056515)</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -948,6 +985,8 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">Width</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Width</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">Aspect</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Aspect</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">Rim</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Rim</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -995,6 +1034,16 @@
               <td>string</td>
               <td>Tire rim size (eg. 15)</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -1016,6 +1065,8 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCode</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -1053,6 +1104,16 @@
               <td>string</td>
               <td>Manufacturer product code</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -1077,6 +1138,8 @@
           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
           ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">ProductCodes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -1114,6 +1177,16 @@
               <td>string[]</td>
               <td>Manufacturer product codes</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -1138,6 +1211,8 @@
           <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
           ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCodes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -1175,6 +1250,16 @@
               <td>string[]</td>
               <td>Manufacturer product codes</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -1196,6 +1281,8 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -1233,6 +1320,16 @@
               <td>int</td>
               <td>Internal Tirelibrary ID</td>
             </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
+            </tr>
           </tbody>
         </table>
         <h3 id="response">Response</h3>
@@ -1257,6 +1354,8 @@
           <span class="hljs-tag">&lt;<span class="hljs-name">int</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">int</span>&gt;</span>
           ...
         <span class="hljs-tag">&lt;/<span class="hljs-name">IDs</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DetailLevel</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">DetailLevel</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ApplyTirewireMarkups</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">GetTires</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
@@ -1293,6 +1392,16 @@
               <td>IDs</td>
               <td>int[]</td>
               <td>Internal Tirelibrary IDs</td>
+            </tr>
+            <tr>
+              <td>DetailLevel</td>
+              <td>int</td>
+              <td><em>(optional)</em> Level of additional data to retrieve from Tire Library<br>(0 = Minimum, 6 = Standard, 10 = All)</td>
+            </tr>
+            <tr>
+              <td>ApplyTirewireMarkups</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Apply Tirewire markups to BuyPrice for display as SellPrice</td>
             </tr>
           </tbody>
         </table>
@@ -1442,12 +1551,12 @@
             <tr>
               <td>LogID</td>
               <td>int</td>
-              <td>The log ID <em>(internal)</em></td>
+              <td><em>(internal)</em> The log ID</td>
             </tr>
             <tr>
               <td>LogIDs</td>
               <td>int[]</td>
-              <td>The log IDs <em>(internal)</em></td>
+              <td><em>(internal)</em> The log IDs</td>
             </tr>
             <tr>
               <td>Message</td>
@@ -1457,7 +1566,7 @@
             <tr>
               <td>SLogID</td>
               <td>guid</td>
-              <td>Speed log ID <em>(internal)</em></td>
+              <td><em>(internal)</em> Speed log ID</td>
             </tr>
           </tbody>
         </table>
@@ -1916,7 +2025,7 @@
         </table>
       </div>
       <div class="dark-box">
-        <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="CSharp">CSharp</a> </div>
+        <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="csharp">C#</a> </div>
       </div>
     </div>
   </body>
