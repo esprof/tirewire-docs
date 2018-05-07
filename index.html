@@ -897,7 +897,7 @@
         <p><a href="http://ws.tirewire.com/connectionscenter/productsservice.asmx">http://ws.tirewire.com/connectionscenter/productsservice.asmx</a></p>
         <h3 id="wsdl">WSDL</h3>
         <p><a href="http://ws.tirewire.com/connectionscenter/productsservice.asmx?wsdl">http://ws.tirewire.com/connectionscenter/productsservice.asmx?wsdl</a></p>
-        <aside class="notice"> The PlaceOrder method is deprecated and scheduled for removal. Please use the PlaceOrders method instead. </aside>
+        <aside class="notice"> Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete. </aside>
         <h2 id="gettires-size-">GetTires (Size)</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -2031,8 +2031,7 @@
         <p><a href="http://ws.tirewire.com/connectionscenter/ordersservice.asmx">http://ws.tirewire.com/connectionscenter/ordersservice.asmx</a></p>
         <h3 id="wsdl">WSDL</h3>
         <p><a href="http://ws.tirewire.com/connectionscenter/ordersservice.asmx?wsdl">http://ws.tirewire.com/connectionscenter/ordersservice.asmx?wsdl</a></p>
-        <aside class="notice"> Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete. </aside>
-        <p>The GetTires method requires a GetTiresOptions object to be provided. The type of tire search that is performed will depend on which of the GetTiresOptions properties are populated.</p>
+        <aside class="warning"> The PlaceOrder method is deprecated and scheduled for removal. Please use the PlaceOrders method instead. </aside>
         <h2 id="getallordersbyconnection">GetAllOrdersByConnection</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
