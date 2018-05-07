@@ -122,7 +122,7 @@ The response from a successful GetTires request.
 Parameter | Type | Description
 --------- | ---- | -----------
 Tires | [Tire](#tire-object)[] | Array of tires that successfully map to the Tirelibrary
-UnmappedTires | [UnmappedTire](#unmappedtire-object)[]  | Array of tires that did not map to the Tirelibrary
+UnmappedTires | [UnmappedTire](#unmappedtire-object)[] | Array of tires that did not map to the Tirelibrary
 UnmappedCount | int | Number of unmapped tires
 LogID | int | *(internal)* The log ID
 LogIDs | int[] | *(internal)* The log IDs

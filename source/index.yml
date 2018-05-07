@@ -47,8 +47,10 @@ includes:
   - connectionscenter/productsservice/_gettiresresponse
   - connectionscenter/productsservice/_tireobject
   - connectionscenter/productsservice/_unmappedtireobject
-#  - connectionscenter/productsservice/_overview
-#  - connectionscenter/productsservice/_methods
+
+# Connections Center - Orders Web Service
+  - connectionscenter/ordersservice/_ordersservice
+  - connectionscenter/ordersservice/_getallordersbyconnection
 
 #  - _errors
 
