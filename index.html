@@ -12,14 +12,14 @@
     <script src="javascripts/all.js" type="text/javascript"></script>
   </head>
 
-  <body class="" data-languages="[&#34;shell&#34;,&#34;csharp&#34;]"> <a href="#" id="nav-button">
+  <body class="" data-languages="[&#34;shell&#34;]"> <a href="#" id="nav-button">
       <span>
         NAV
         <img alt="undefined" class="undefined" src="images/navbar.png">
       </span>
     </a>
     <div class="tocify-wrapper"> <img alt="undefined" class="undefined" src="images/logo.png">
-      <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="csharp">C#</a> </div>
+      <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> </div>
       <div class="search"> <input type="text" class="search" id="input-search" placeholder="Search"> </div>
       <ul class="search-results"></ul>
       <div id="toc"> </div>
@@ -51,20 +51,23 @@
           <li>Carroll Tire Online</li>
           <li>Exxpress Tire Delivery</li>
           <li>Freedomsoft</li>
+          <li>Friend Tire Company</li>
           <li>Jack Williams Tire</li>
           <li>JMK</li>
           <li>K&amp;M Tire</li>
-          <li>Kauffman Tire</li>
           <li>MaddenCo</li>
           <li>MAM Software</li>
           <li>Max Finkelstein</li>
           <li>National Tire Online</li>
           <li>Sullivan Tire</li>
+          <li>Sutong</li>
           <li>TCI Tire Centers</li>
           <li>Tire Data Connect</li>
           <li>Tireweb</li>
           <li>TreadConnect</li>
+          <li>Treadmaxx Tire Distributors</li>
           <li>U.S. AutoForce</li>
+          <li>WheelUnity</li>
         </ul>
         <h2 id="access-keys">Access Keys</h2>
         <p>Access to each of the Connections Center Web Services requires an Access Key (or API Key), provided by Tirewire. The Access Key identifies and authenticates you to the Connections Center and must be provided with each Web Service method request.</p>
@@ -894,8 +897,7 @@
         <p><a href="http://ws.tirewire.com/connectionscenter/productsservice.asmx">http://ws.tirewire.com/connectionscenter/productsservice.asmx</a></p>
         <h3 id="wsdl">WSDL</h3>
         <p><a href="http://ws.tirewire.com/connectionscenter/productsservice.asmx?wsdl">http://ws.tirewire.com/connectionscenter/productsservice.asmx?wsdl</a></p>
-        <aside class="notice"> Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete. </aside>
-        <p>The GetTires method requires a GetTiresOptions object to be provided. The type of tire search that is performed will depend on which of the GetTiresOptions properties are populated.</p>
+        <aside class="notice"> The PlaceOrder method is deprecated and scheduled for removal. Please use the PlaceOrders method instead. </aside>
         <h2 id="gettires-size-">GetTires (Size)</h2>
         <pre class="highlight shell"><code>curl -p
   -H "Content-Type: text/xml;charset=UTF-8"
@@ -2023,9 +2025,1464 @@
             </tr>
           </tbody>
         </table>
+        <h1 id="orders-web-service">Orders Web Service</h1>
+        <p>The Orders Web Service contains methods related to retrieving orders, delivery/shipping information, and placing orders.</p>
+        <h3 id="url">URL</h3>
+        <p><a href="http://ws.tirewire.com/connectionscenter/ordersservice.asmx">http://ws.tirewire.com/connectionscenter/ordersservice.asmx</a></p>
+        <h3 id="wsdl">WSDL</h3>
+        <p><a href="http://ws.tirewire.com/connectionscenter/ordersservice.asmx?wsdl">http://ws.tirewire.com/connectionscenter/ordersservice.asmx?wsdl</a></p>
+        <aside class="notice"> Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete. </aside>
+        <p>The GetTires method requires a GetTiresOptions object to be provided. The type of tire search that is performed will depend on which of the GetTiresOptions properties are populated.</p>
+        <h2 id="getallordersbyconnection">GetAllOrdersByConnection</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetAllOrdersByConnection"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByConnection</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">connectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">connectionID</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByConnection</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByConnectionResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByConnectionResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByConnectionResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByConnectionResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves all orders for a Connection.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetAllOrdersByConnection</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>connectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getallordersbygroup">GetAllOrdersByGroup</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetAllOrdersByGroup"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByGroup</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByGroup</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByGroupResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByGroupResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByGroupResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByGroupResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves all orders for a Group.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetAllOrdersByGroup</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getorderbyid">GetOrderByID</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetOrderByID"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByID</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">orderID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">orderID</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByID</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByIDResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByIDResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByIDResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByIDResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves an order by ID.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetOrderByID</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>orderID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getorderbyidandconnection">GetOrderByIDAndConnection</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetOrderByIDAndConnection"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByIDAndConnection</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">connectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">connectionID</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">orderID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">orderID</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByIDAndConnection</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByIDAndConnectionResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetOrderByIDAndConnectionResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByIDAndConnectionResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrderByIDAndConnectionResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves an order by ID and Connection.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetOrderByIDAndConnection</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>connectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>orderID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getordersbygroupextended">GetOrdersByGroupExtended</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetOrdersByGroupExtended"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrdersByGroupExtended</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">skip</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">skip</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">take</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">take</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">from</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">from</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">to</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">to</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrdersByGroupExtended</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetOrdersByGroupExtendedResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetOrdersByGroupExtendedResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">TotalCount</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TotalCount</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrdersByGroupExtendedResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetOrdersByGroupExtendedResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves orders for a Group with extended options.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetOrdersByGroupExtended</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>skip</td>
+              <td>int</td>
+              <td>Number of orders to skip for pagination</td>
+            </tr>
+            <tr>
+              <td>take</td>
+              <td>int</td>
+              <td>Number of orders to return for pagination</td>
+            </tr>
+            <tr>
+              <td>from</td>
+              <td>dateTime</td>
+              <td>Only return orders after this date and time</td>
+            </tr>
+            <tr>
+              <td>to</td>
+              <td>dateTime</td>
+              <td>Only return orders before this date and time</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>TotalCount</td>
+              <td>int</td>
+              <td>Total number of orders in the provided date range</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getdeliveryoptions">GetDeliveryOptions</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetDeliveryOptions"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetDeliveryOptions</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">connectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">connectionID</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">subData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">subData</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetDeliveryOptions</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetDeliveryOptionsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetDeliveryOptionsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryOptions</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryOption</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryOption</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryOptions</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetDeliveryOptionsResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetDeliveryOptionsResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves available Delivery Options for a Connection.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetDeliveryOptions</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>connectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData override</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of DeliveryOption objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Code</td>
+              <td>string</td>
+              <td>Delivery option identifying code</td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>string</td>
+              <td>Delivery option title</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="getshiptooptions">GetShipToOptions</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/GetShipToOptions"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetShipToOptions</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">connectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">connectionID</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">subData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">subData</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetShipToOptions</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetShipToOptionsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetShipToOptionsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ShipToOptions</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ShipToOption</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AddressLine1</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AddressLine1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AddressLine2</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AddressLine2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">City</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">City</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">State</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">State</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ZIP</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ZIP</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ShipToOption</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ShipToOptions</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetShipToOptionsResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetShipToOptionsResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves available Ship-To Options for a Connection where supported.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/GetShipToOptions</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>connectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData override</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of ShipToOption objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Code</td>
+              <td>string</td>
+              <td>Ship-to option identifying code</td>
+            </tr>
+            <tr>
+              <td>Title</td>
+              <td>string</td>
+              <td>Ship-to option title</td>
+            </tr>
+            <tr>
+              <td>AddressLine1</td>
+              <td>string</td>
+              <td>Address line 1</td>
+            </tr>
+            <tr>
+              <td>AddressLine2</td>
+              <td>string</td>
+              <td>Address line 2</td>
+            </tr>
+            <tr>
+              <td>City</td>
+              <td>string</td>
+              <td>City</td>
+            </tr>
+            <tr>
+              <td>State</td>
+              <td>string</td>
+              <td>State</td>
+            </tr>
+            <tr>
+              <td>ZIP</td>
+              <td>int</td>
+              <td>ZIP code</td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="placeorders">PlaceOrders</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/ordersservice/PlaceOrders"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/ordersservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">PlaceOrders</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">accessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">accessKey</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">groupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">groupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">ordersToPlace</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">UnplacedOrder</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">OrderNumber</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">OrderNumber</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Code</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Code</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Title</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Title</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AddressLine1</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AddressLine1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AddressLine2</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AddressLine2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">City</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">City</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">State</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">State</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ZIP</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ZIP</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">ShipTo</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnplacedOrderTire</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">UnplacedOrderTire</span>&gt;</span>
+            ...
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Tires</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnplacedOrderUnmappedTire</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Make</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">UnplacedOrderUnmappedTire</span>&gt;</span>
+            ...
+          <span class="hljs-tag">&lt;/<span class="hljs-name">UnmappedTires</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnplacedOrderMiscProduct</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Make</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Make</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">UnplacedOrderMiscProduct</span>&gt;</span>
+            ...
+          <span class="hljs-tag">&lt;/<span class="hljs-name">MiscProducts</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnplacedOrderWheel</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">UnplacedOrderWheel</span>&gt;</span>
+            ...
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Wheels</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">UnplacedOrder</span>&gt;</span>
+        ...
+      <span class="hljs-tag">&lt;/<span class="hljs-name">ordersToPlace</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">PlaceOrders</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByConnectionResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/ordersservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetAllOrdersByConnectionResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Orders</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Order</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LogId</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LogId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TirewireConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">TirewireConnectionID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SubData</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SubData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">SupplierSystemOrderID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Status</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Status</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">StatusID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">StatusID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DatePlaced</span>&gt;</span>dateTime<span class="hljs-tag">&lt;/<span class="hljs-name">DatePlaced</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Number</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Number</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Notes</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Notes</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DeliveryID</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">DeliveryID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ShipTo</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">UnmappedTires</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">MiscProducts</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Order</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Orders</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByConnectionResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetAllOrdersByConnectionResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Places orders. (Delivery information, including IDs, can be retrieved using the GetDeliveryOptions method).</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/ordersservice/PlaceOrders</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>key</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>groupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ordersToPlace</td>
+              <td><a href="#unplacedorder">UnplacedOrder</a>[]</td>
+              <td>Array of UnplacedOrder objects</td>
+            </tr>
+          </tbody>
+        </table>
+        <h4 id="unplacedorder">UnplacedOrder</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData override</td>
+            </tr>
+            <tr>
+              <td>OrderNumber</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>string</td>
+              <td><a href="#getdeliveryoptions">Delivery option identifying code</a></td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td><em>(optional)</em> <a href="#getshiptooptions">Ship-to information</a><br><strong>Not supported/required by all supplier systems</strong></td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td>UnplacedOrderTire[]</td>
+              <td><em>(optional)</em> Array of UnplacedOrderTire objects</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td>UnplacedOrderUnmappedTire[]</td>
+              <td><em>(optional)</em> Array of UnplacedOrderUnmappedTire objects (Make name must be provided)</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>UnplacedOrderMiscProduct[]</td>
+              <td><em>(optional)</em> Array of UnplacedOrderMiscProduct objects (Make name must be provided)</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>UnplacedOrderWheel[]</td>
+              <td><em>(optional)</em> Array of UnplacedOrderWheel objects</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response-parameters">Response Parameters</h3>
+        <p>An array of Order objects.</p>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ID</td>
+              <td>int</td>
+              <td>Connections Center order ID</td>
+            </tr>
+            <tr>
+              <td>LogId</td>
+              <td>string</td>
+              <td>Connections Center order log ID</td>
+            </tr>
+            <tr>
+              <td>TirewireConnectionID</td>
+              <td>int</td>
+              <td>Connection ID</td>
+            </tr>
+            <tr>
+              <td>SubData</td>
+              <td>string</td>
+              <td>SubData value provided at the time of order</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemID</td>
+              <td>int</td>
+              <td>Connection supplier system ID</td>
+            </tr>
+            <tr>
+              <td>SupplierSystemOrderID</td>
+              <td>string</td>
+              <td>Supplier system order ID</td>
+            </tr>
+            <tr>
+              <td>Status</td>
+              <td>string</td>
+              <td>Order status</td>
+            </tr>
+            <tr>
+              <td>StatusID</td>
+              <td>int</td>
+              <td>Order status ID</td>
+            </tr>
+            <tr>
+              <td>DatePlaced</td>
+              <td>datetime</td>
+              <td>Time that the order was placed</td>
+            </tr>
+            <tr>
+              <td>Number</td>
+              <td>string</td>
+              <td>Purchase order number</td>
+            </tr>
+            <tr>
+              <td>Notes</td>
+              <td>string</td>
+              <td>Order notes</td>
+            </tr>
+            <tr>
+              <td>DeliveryID</td>
+              <td>int</td>
+              <td>Delivery ID</td>
+            </tr>
+            <tr>
+              <td>ShipTo</td>
+              <td>ShipTo</td>
+              <td>Ship-to information (if available)</td>
+            </tr>
+            <tr>
+              <td>Tires</td>
+              <td><a href="#tire-object">Tire</a>[]</td>
+              <td>Array of tires that successfully map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>UnmappedTires</td>
+              <td><a href="#unmappedtire-object">UnmappedTire</a>[]</td>
+              <td>Array of tires that did not map to the Tirelibrary</td>
+            </tr>
+            <tr>
+              <td>MiscProducts</td>
+              <td>MiscProduct[]</td>
+              <td>Array of miscellaneous products</td>
+            </tr>
+            <tr>
+              <td>Wheels</td>
+              <td>Wheel[]</td>
+              <td>Array of wheels</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
       <div class="dark-box">
-        <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> <a href="#" data-language-name="csharp">C#</a> </div>
+        <div class="lang-selector"> <a href="#" data-language-name="shell">shell</a> </div>
       </div>
     </div>
   </body>
