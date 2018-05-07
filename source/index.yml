@@ -2,7 +2,7 @@ title: Connections Center API
 
 language_tabs:
   - shell
-  - csharp
+#  - csharp
 
 toc_footers:
   - <a href='#access-keys'>Contact Us for an Access Key</a>
