@@ -9,5 +9,5 @@ http://ws.tirewire.com/connectionscenter/productsservice.asmx
 http://ws.tirewire.com/connectionscenter/productsservice.asmx?wsdl
 
 <aside class="notice">
-The PlaceOrder method is deprecated and scheduled for removal. Please use the PlaceOrders method instead.
+Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete.
 </aside>

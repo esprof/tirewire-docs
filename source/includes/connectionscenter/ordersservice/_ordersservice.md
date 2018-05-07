@@ -8,8 +8,6 @@ http://ws.tirewire.com/connectionscenter/ordersservice.asmx
 ### WSDL
 http://ws.tirewire.com/connectionscenter/ordersservice.asmx?wsdl
 
-<aside class="notice">
-Only the GetTires method in the Products Web Service is currently used, the other methods shown at the URL are now obsolete.
+<aside class="warning">
+The PlaceOrder method is deprecated and scheduled for removal. Please use the PlaceOrders method instead.
 </aside>
-
-The GetTires method requires a GetTiresOptions object to be provided. The type of tire search that is performed will depend on which of the GetTiresOptions properties are populated.
