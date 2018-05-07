@@ -52,6 +52,7 @@ includes:
   - connectionscenter/ordersservice/_ordersservice
   - connectionscenter/ordersservice/_getallordersbyconnection
   - connectionscenter/ordersservice/_getallordersbygroup
+  - connectionscenter/ordersservice/_getorderbyid
 
 #  - _errors
 
