@@ -11,18 +11,20 @@ Supplier Systems which the Connections Center can provide access to include the 
   * Carroll Tire Online
   * Exxpress Tire Delivery
   * Freedomsoft
+  * Friend Tire Company
   * Jack Williams Tire
   * JMK
   * K&M Tire
-  * Kauffman Tire
   * MaddenCo
   * MAM Software
   * Max Finkelstein
   * National Tire Online
   * Sullivan Tire
+  * Sutong
   * TCI Tire Centers
   * Tire Data Connect
   * Tireweb
   * TreadConnect
+  * Treadmaxx Tire Distributors
   * U.S. AutoForce
-  
+  * WheelUnity
