@@ -39,11 +39,7 @@ under the License.
       <% if (langs) { %>
         <div class="lang-selector">
           <% for(var i=0; i<langs.length; i++) { %>
-            <% if (langs[i] == "csharp") { %>
-              <a href="#" data-language-name="<%= langs[i] %>">C#</a>
-            <% } else { %>
-              <a href="#" data-language-name="<%= langs[i] %>"><%= langs[i] %></a>
-            <% } %>
+            <a href="#" data-language-name="<%= langs[i] %>"><%= langs[i] %></a>
           <% } %>
         </div>
       <% } %>
@@ -74,11 +70,7 @@ under the License.
         <% if (langs) { %>
           <div class="lang-selector">
             <% for(var i=0; i<langs.length; i++) { %>
-              <% if (langs[i] == "csharp") { %>
-                <a href="#" data-language-name="<%= langs[i] %>">C#</a>
-              <% } else { %>
-                <a href="#" data-language-name="<%= langs[i] %>"><%= langs[i] %></a>
-              <% } %>
+              <a href="#" data-language-name="<%= langs[i] %>"><%= langs[i] %></a>
             <% } %>
           </div>
         <% } %>
