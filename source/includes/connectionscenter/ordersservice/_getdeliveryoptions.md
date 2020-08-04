@@ -43,7 +43,11 @@ curl -p
 </soap:Envelope>
 ```
 
-Retrieves available Delivery Options for a Connection.
+Retrieves available Delivery Options for a Connection where supported.
+
+<aside class="notice">
+Not all systems support delivery options, so an empty response from this service should not be treated as failure.
+</aside>
 
 ### SOAP Action
 `http://ws.tirewire.com/connectionscenter/ordersservice/GetDeliveryOptions`

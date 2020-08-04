@@ -132,7 +132,7 @@ ConnectionID | int | [The ID of the connection](#get-connections-by-group-token)
 SubData | string | SubData override
 OrderNumber | string | Purchase order number
 Notes | string | Order notes
-DeliveryID | string | [Delivery option identifying code](#getdeliveryoptions)
+DeliveryID | string | *(optional)* [Delivery option identifying code](#getdeliveryoptions)<br>**Not supported/required by all supplier systems**
 ShipTo | ShipTo | *(optional)* [Ship-to information](#getshiptooptions)<br>**Not supported/required by all supplier systems**
 Tires | UnplacedOrderTire[] | *(optional)* Array of UnplacedOrderTire objects
 UnmappedTires | UnplacedOrderUnmappedTire[] | *(optional)* Array of UnplacedOrderUnmappedTire objects (Make name must be provided)
