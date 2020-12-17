@@ -14,10 +14,7 @@
                         <Name>string</Name>
                         <MakeId>int</MakeId>
                     </FitmentMake>
-                    <FitmentMake>
-                        <Name>string</Name>
-                        <MakeId>int</MakeId>
-                    </FitmentMake>
+                    ...
                 </MakesResult>
                 <Message>string</Message>
             </GetVehicleMakesResult>

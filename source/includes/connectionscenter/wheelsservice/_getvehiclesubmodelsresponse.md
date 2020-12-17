@@ -15,11 +15,7 @@
                         <Name>string</Name>
                         <VehicleCode>string</VehicleCode>
                     </FitmentSubModel>
-                    <FitmentSubModel>
-                        <Id>int</Id>
-                        <Name>string</Name>
-                        <VehicleCode>string</VehicleCode>
-                    </FitmentSubModel>
+                    ...
                 </SubModelsResult>
                 <Message>string</Message>
             </GetVehicleSubModelsResult>

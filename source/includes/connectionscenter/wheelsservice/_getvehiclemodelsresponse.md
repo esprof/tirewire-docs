@@ -16,12 +16,7 @@
                         <MoreData>boolean</MoreData>
                         <ModelId>int</ModelId>
                     </FitmentModel>
-                    <FitmentModel>
-                        <Name>string</Name>
-                        <VehicleCode>string</VehicleCode>
-                        <MoreData>boolean</MoreData>
-                        <ModelId>int</ModelId>
-                    </FitmentModel>
+                    ...
                 </ModelsResult>
             </GetVehicleModelsResult>
         </GetVehicleModelsResponse>
