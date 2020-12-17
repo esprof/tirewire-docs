@@ -2022,6 +2022,840 @@
             </tr>
           </tbody>
         </table>
+        <h1 id="wheels-web-service">Wheels Web Service</h1>
+        <p>The Wheels Web Service contains methods related to retrieving pricing and inventory for wheels.</p>
+        <h3 id="url">URL</h3>
+        <p><a href="http://ws.tirewire.com/connectionscenter/wheelsservice.asmx">http://ws.tirewire.com/connectionscenter/wheelsservice.asmx</a></p>
+        <h3 id="wsdl">WSDL</h3>
+        <p><a href="http://ws.tirewire.com/connectionscenter/wheelsservice.asmx?wsdl">http://ws.tirewire.com/connectionscenter/wheelsservice.asmx?wsdl</a></p>
+        <h2 id="getwheelelements">GetWheelElements</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetWheelElements"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelElements</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Brand</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Brand</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Style</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Style</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Size</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Size</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Finish</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Finish</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">BoltPattern</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">BoltPattern</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Offset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Offset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Bore</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Bore</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">LoadRating</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRating</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimDiameter</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimDiameter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimWidth</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimWidth</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">MinimumOffset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">MinimumOffset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">MaximumOffset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">MaximumOffset</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelElements</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method is used to retrieve all available wheel elements (brands, styles, finishes, sizes, etc). On the initial request, to retrieve all elements, you can specify no element properties and it will return all elements available. You can then further filter elements by adding element properties to the request. For example, if you make a request for all elements and then want to only retrieve available elements of wheels that have a rim diameter of 18, you would add RimDiameter 18 to your request which would then return only brands that contained wheels with a Rim Diameter of 18, Rim Widths of wheels that have a diameter of 18, etc.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetWheelElements</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>Brand</td>
+              <td>string</td>
+              <td><em>(optional)</em> Wheel Brand (Manufacturer)</td>
+            </tr>
+            <tr>
+              <td>Style</td>
+              <td>string</td>
+              <td><em>(optional)</em> Wheel Style (Model)</td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>string</td>
+              <td><em>(optional)</em> Wheel Size (Diameter x Width 18x10)</td>
+            </tr>
+            <tr>
+              <td>Finish</td>
+              <td>string</td>
+              <td><em>(optional)</em> Wheel Finish</td>
+            </tr>
+            <tr>
+              <td>BoltPattern</td>
+              <td>string</td>
+              <td><em>(optional)</em> Wheel Bolt Pattern / PCD (4x114.3)</td>
+            </tr>
+            <tr>
+              <td>Offset</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Wheel Offset (20.00)</td>
+            </tr>
+            <tr>
+              <td>Bore</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Wheel Bore (80.3)</td>
+            </tr>
+            <tr>
+              <td>LoadRating</td>
+              <td>int</td>
+              <td><em>(optional)</em> Wheel Load Rating (1400)</td>
+            </tr>
+            <tr>
+              <td>RimDiameter</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Wheel Rim Diameter (18.00)</td>
+            </tr>
+            <tr>
+              <td>RimWidth</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Wheel Rim Width (10.00)</td>
+            </tr>
+            <tr>
+              <td>MinimumOffset</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Returns offsets above specified offset, you must specify a maximum offset to use minimum offset. This is used to retrieve an offset range.</td>
+            </tr>
+            <tr>
+              <td>MaximumOffset</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Returns offsets below specified offset, you must specify a minimum offset to use maximum offset. This is used to retrieve an offset range.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getwheelelements-response">GetWheelElementsResponse</a></p>
+        <h2 id="getwheelsbywheelelements">GetWheelsByWheelElements</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetWheelsByWheelElements"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelsByWheelElements</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ExcludeZeroStock</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ExcludeZeroStock</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">InventoryOption</span>&gt;</span>All or Positive or Zero<span class="hljs-tag">&lt;/<span class="hljs-name">InventoryOption</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Brand</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Brand</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Style</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Style</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ProductCodes</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">ProductCodes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Size</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Size</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Finish</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Finish</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">BoltPattern</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">BoltPattern</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Offset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Offset</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">OffsetMinimum</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">OffsetMinimum</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">OffsetMaximum</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">OffsetMaximum</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">LoadRating</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRating</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Bore</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Bore</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimDiameter</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimDiameter</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimWidth</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimWidth</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ProductCodeSearch</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCodeSearch</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ProductCodeSearchLikeness</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCodeSearchLikeness</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccountCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccountCode</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelsByWheelElements</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>Retrieves wheels by wheel elements. This method should be used after the <a href="#getwheelelements">GetWheelElements</a> method to ensure the search contains valid wheel criteria for the search.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetWheelsByWheelElements</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>ExcludeZeroStock</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Excludes items with zero stock</td>
+            </tr>
+            <tr>
+              <td>InventoryOption</td>
+              <td>string</td>
+              <td><em>(optional)</em> Specify whether to return all, positive or negative inventory. <br>Allowed Values: All, Positive, Negative</td>
+            </tr>
+            <tr>
+              <td>Brand</td>
+              <td>string</td>
+              <td><em>(optional)</em> Brand of wheel to retrieve</td>
+            </tr>
+            <tr>
+              <td>Style</td>
+              <td>string</td>
+              <td><em>(optional)</em> Style of wheel to retrieve</td>
+            </tr>
+            <tr>
+              <td>ProductCodes</td>
+              <td>string array</td>
+              <td><em>(optional)</em> List of product codes to retrieve by, set ProductCodeSearch to true if using ProductCodes parameter.</td>
+            </tr>
+            <tr>
+              <td>Size</td>
+              <td>string</td>
+              <td><em>(optional)</em> Size of wheels to retrieve by (18x10)</td>
+            </tr>
+            <tr>
+              <td>Finish</td>
+              <td>string</td>
+              <td><em>(optional)</em> Finish of wheel to retrieve</td>
+            </tr>
+            <tr>
+              <td>BoltPattern</td>
+              <td>string</td>
+              <td><em>(optional)</em> Bolt Pattern / PCD of wheel (4x114.3)</td>
+            </tr>
+            <tr>
+              <td>Offset</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Offset of wheel (20.00)</td>
+            </tr>
+            <tr>
+              <td>OffsetMinimum</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Offset range to retrieve wheels by (must include OffsetMaximum if using OffsetMinimum).</td>
+            </tr>
+            <tr>
+              <td>OffsetMaximum</td>
+              <td>decimak</td>
+              <td><em>(optional)</em> Offset range to retrieve wheels by (must include OffsetMinimum if using OffsetMaximum).</td>
+            </tr>
+            <tr>
+              <td>LoadRating</td>
+              <td>int</td>
+              <td><em>(optional)</em> Load Rating to retrieve wheels by (1400)</td>
+            </tr>
+            <tr>
+              <td>Bore</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Center Bore to retrieve wheels by (80.3)</td>
+            </tr>
+            <tr>
+              <td>RimDiameter</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Rim Diameter to retrieve wheels by (18.00)</td>
+            </tr>
+            <tr>
+              <td>RimWidth</td>
+              <td>decimal</td>
+              <td><em>(optional)</em> Rim Width to retrieve wheels by (10.00)</td>
+            </tr>
+            <tr>
+              <td>ProductCodeSearch</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Specify whether this search is a product code search, required if using ProductCodes parameter.</td>
+            </tr>
+            <tr>
+              <td>ProductCodeSearchLikeness</td>
+              <td>boolean</td>
+              <td><em>(optional)</em> Specify whether the product code search should search product codes by likeness (ABC-% instead of ABC-123 for example)</td>
+            </tr>
+            <tr>
+              <td>AccountCode</td>
+              <td>string</td>
+              <td><em>(optional)</em> AccountCode to use for search</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getwheelsbywheelelements-response">GetWheelsByWheelElementsResponse</a></p>
+        <h2 id="getvehicleyears">GetVehicleYears</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleYears"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleYears</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleYears</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method is used to return a list of valid years of vehicles. This method is used as the first step in the vehicle search process, which typically consists of Year &gt; Make &gt; Model &gt; Results.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleYears</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getvehicleyears-response">GetVehicleYearsResponse</a></p>
+        <h2 id="getvehiclemakes">GetVehicleMakes</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleMakes"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleYears</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Year</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Year</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleYears</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method is used to return a list of valid makes of vehicles by year. This method is used as the second step in the vehicle search process, which typically consists of Year &gt; Make &gt; Model &gt; Results.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleMakes</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>Year</td>
+              <td>string</td>
+              <td>Year to return makes for</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getvehiclemakes-response">GetVehicleMakesResponse</a></p>
+        <h2 id="getvehiclemodels">GetVehicleModels</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleModels"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleModels</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Year</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Year</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleMake</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleMake</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleModels</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method is used to return a list of valid models of vehicles by year &amp; make. This method is used as the third step in the vehicle search process, which typically consists of Year &gt; Make &gt; Model &gt; Results.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleModels</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>Year</td>
+              <td>string</td>
+              <td>Year to return makes for</td>
+            </tr>
+            <tr>
+              <td>VehicleMake</td>
+              <td>string</td>
+              <td>Make of vehicle to return models for</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getvehiclemodels-response">GetVehicleModelsResponse</a></p>
+        <h2 id="getvehiclesubmodels">GetVehicleSubModels</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleSubModels"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleSubModels</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Year</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Year</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleMake</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleMake</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleModel</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleModel</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleSubModels</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method is used to return a list of valid submodels of vehicles by year, make &amp; model. This method is only used if required, some vehicle searches do not require a sub model lookup, however if it&#39;s specified that it is required to lookup the sub model before searching wheels by vehicle then this is the last step before searching by vehicle.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleSubModels</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>Year</td>
+              <td>string</td>
+              <td>Year to return makes for</td>
+            </tr>
+            <tr>
+              <td>VehicleMake</td>
+              <td>string</td>
+              <td>Make of vehicle to return models for</td>
+            </tr>
+            <tr>
+              <td>VehicleModel</td>
+              <td>string</td>
+              <td>Model of vehicle to return submodels for</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getvehiclesubmodels-response">GetVehicleSubModelsResponse</a></p>
+        <h2 id="getvehiclewheels">GetVehicleWheels</h2>
+        <pre class="highlight shell"><code>curl -p
+  -H "Content-Type: text/xml;charset=UTF-8"
+  -H "SOAPAction: http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleWheels"
+  -d @request.xml
+  http://ws.tirewire.com/connectionscenter/wheelsservice.asmx &gt; response.xml</code></pre>
+        <blockquote>
+          <p>Request XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleWheels</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">options</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ConnectionID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ConnectionID</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">AccessKey</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">AccessKey</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GroupToken</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">GroupToken</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleCode</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">options</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleWheels</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>This method returns wheels for a vehicle lookup.</p>
+        <h3 id="soap-action">SOAP Action</h3>
+        <p><code>http://ws.tirewire.com/connectionscenter/wheelsservice/GetVehicleWheels</code></p>
+        <h3 id="request-parameters">Request Parameters</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>AccessKey</td>
+              <td>string</td>
+              <td><a href="#access-keys">Access Key</a></td>
+            </tr>
+            <tr>
+              <td>GroupToken</td>
+              <td>string</td>
+              <td><a href="#creating-a-group">The token for the group containing the connection</a></td>
+            </tr>
+            <tr>
+              <td>ConnectionID</td>
+              <td>int</td>
+              <td><a href="#get-connections-by-group-token">The ID of the connection</a></td>
+            </tr>
+            <tr>
+              <td>VehicleCode</td>
+              <td>string</td>
+              <td>VehicleCode returned from Model or Submodel lookup.</td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="response">Response</h3>
+        <p>Returns <a href="#getvehiclewheels-response">GetVehicleWheelsResponse</a></p>
+        <h2 id="getwheelelements-response">GetWheelElements Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelElementsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelElementsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">BoltPatterns</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">BoltPatterns</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Brands</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Brands</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Finishes</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Finishes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Sizes</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Sizes</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Styles</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Styles</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">LoadRatings</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">int</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">int</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">int</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">int</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">LoadRatings</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Offsets</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Offsets</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Bores</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Bores</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimDiameters</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RimDiameters</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">RimWidths</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">decimal</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">decimal</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RimWidths</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelElementsResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelElementsResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetWheelElements request.</p>
+        <h2 id="getwheelsbywheelelements-response">GetWheelsByWheelElements Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelsByWheelElementsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetWheelsByWheelElementsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Wheels</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">Wheel</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ID</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ID</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCode</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Style</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Style</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LoadRating</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRating</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Finish</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Finish</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Size</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Size</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Bore</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Bore</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Load</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Load</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Offset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Offset</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Backside</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Backside</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">BoltPatterns</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">BoltPatterns</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ImageUrl</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageUrl</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Brand</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Brand</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Overview</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Overview</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">CapPartNumber</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">CapPartNumber</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Lip</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Lip</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Weight</span>&gt;</span>double<span class="hljs-tag">&lt;/<span class="hljs-name">Weight</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LugType</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">LugType</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">HasIconMediaImage</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasIconMediaImage</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">RimDiameter</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimDiameter</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">RimWidth</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">RimWidth</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ATVOffset</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ATVOffset</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">CustomField1</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">CustomField1</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Quantity</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">QuantitySecondary</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">QuantitySecondary</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">QuantityPlus</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">QuantityPlus</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">QuantityDetails</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">BuyPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">BuyPrice</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">SellPrice</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">SellPrice</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Tax</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Tax</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">IsSpecial</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">IsSpecial</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">Wheel</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Wheels</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelsByWheelElementsResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetWheelsByWheelElementsResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetWheelsByWheelElements request.</p>
+        <h2 id="getvehicleyears-response">GetVehicleYears Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleYearsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleYearsResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorCode</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorCode</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorMessage</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorMessage</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">YearsResult</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">string</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">string</span>&gt;</span>
+                <span class="hljs-tag">&lt;/<span class="hljs-name">YearsResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleYearsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleYearsResponse</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetVehicleYears request.</p>
+        <h2 id="getvehiclemakes-response">GetVehicleMakes Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleMakesResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleMakesResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorCode</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorCode</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorMessage</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorMessage</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">MakesResult</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">FitmentMake</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">MakeId</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">MakeId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">FitmentMake</span>&gt;</span>
+                    ...
+                <span class="hljs-tag">&lt;/<span class="hljs-name">MakesResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleMakesResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleMakesResponse</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetVehicleMakes request.</p>
+        <h2 id="getvehiclemodels-response">GetVehicleModels Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleModelsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleModelsResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorCode</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorCode</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorMessage</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorMessage</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ModelsResult</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">FitmentModel</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleCode</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">MoreData</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">MoreData</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">ModelId</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ModelId</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">FitmentModel</span>&gt;</span>
+                    ...
+                <span class="hljs-tag">&lt;/<span class="hljs-name">ModelsResult</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleModelsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleModelsResponse</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetVehicleModels request. If MoreData is true and VehicleCode is empty, you must do a model search before proceeding to get wheels by vehicle. Otherwise, you can use VehicleCode to retrieve wheels.</p>
+        <h2 id="getvehiclesubmodels-response">GetVehicleSubModels Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleSubModelsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleSubModelsResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorCode</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorCode</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">ErrorMessage</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ErrorMessage</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">SubModelsResult</span>&gt;</span>
+                    <span class="hljs-tag">&lt;<span class="hljs-name">FitmentSubModel</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Id</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Id</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">Name</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Name</span>&gt;</span>
+                        <span class="hljs-tag">&lt;<span class="hljs-name">VehicleCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">VehicleCode</span>&gt;</span>
+                    <span class="hljs-tag">&lt;/<span class="hljs-name">FitmentSubModel</span>&gt;</span>
+                    ...
+                <span class="hljs-tag">&lt;/<span class="hljs-name">SubModelsResult</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleSubModelsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleSubModelsResponse</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetVehicleSubModels request.</p>
+        <h2 id="getvehiclewheels-response">GetVehicleWheels Response</h2>
+        <blockquote>
+          <p>Response XML</p>
+        </blockquote>
+        <pre class="highlight xml"><code><span class="hljs-meta">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">soap:Envelope</span> <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="hljs-attr">xmlns:xsd</span>=<span class="hljs-string">"http://www.w3.org/2001/XMLSchema"</span> <span class="hljs-attr">xmlns:soap</span>=<span class="hljs-string">"http://schemas.xmlsoap.org/soap/envelope/"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">soap:Body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleWheelsResponse</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://ws.tirewire.com/connectionscenter/wheelsservice"</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">GetVehicleWheelsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">WheelsResult</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">FitmentWheel</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Id</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">Id</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ProductCode</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ClientProductCode</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ClientProductCode</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Brand</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Brand</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Style</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Style</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Finish</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Finish</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Size</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Size</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">PCD</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">PCD</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Offset</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Offset</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ImageUrl</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageUrl</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">ImageUrl2</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">ImageUrl2</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Description</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Description</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Weight</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Weight</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Bore</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Bore</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Backside</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Backside</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">TireSize</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">TireSize</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Price</span>&gt;</span>decimal<span class="hljs-tag">&lt;/<span class="hljs-name">Price</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">LoadRating</span>&gt;</span>int<span class="hljs-tag">&lt;/<span class="hljs-name">LoadRating</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Quantity</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">IMImages</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Wheel</span> <span class="hljs-attr">xsi:nil</span>=<span class="hljs-string">"true"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">HasIconMediaImage</span>&gt;</span>boolean<span class="hljs-tag">&lt;/<span class="hljs-name">HasIconMediaImage</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">FitmentWheel</span>&gt;</span>
+          ...
+        <span class="hljs-tag">&lt;/<span class="hljs-name">WheelsResult</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Message</span>&gt;</span>string<span class="hljs-tag">&lt;/<span class="hljs-name">Message</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleWheelsResult</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">GetVehicleWheelsResponse</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">soap:Body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">soap:Envelope</span>&gt;</span></code></pre>
+        <p>The response from a successful GetVehicleWheels request.</p>
         <h1 id="orders-web-service">Orders Web Service</h1>
         <p>The Orders Web Service contains methods related to retrieving orders, delivery/shipping information, and placing orders.</p>
         <h3 id="url">URL</h3>
