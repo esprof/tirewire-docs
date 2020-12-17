@@ -48,6 +48,23 @@ includes:
   - connectionscenter/productsservice/_tireobject
   - connectionscenter/productsservice/_unmappedtireobject
 
+# Connections Center - Wheels Web Service
+  - connectionscenter/wheelsservice/_wheelsservice
+  - connectionscenter/wheelsservice/_getwheelelements
+  - connectionscenter/wheelsservice/_getwheelsbywheelelements
+  - connectionscenter/wheelsservice/_getvehicleyears
+  - connectionscenter/wheelsservice/_getvehiclemakes
+  - connectionscenter/wheelsservice/_getvehiclemodels
+  - connectionscenter/wheelsservice/_getvehiclesubmodels
+  - connectionscenter/wheelsservice/_getvehiclewheels
+  - connectionscenter/wheelsservice/_getwheelelementsresponse
+  - connectionscenter/wheelsservice/_getwheelsbywheelelementsresponse
+  - connectionscenter/wheelsservice/_getvehicleyearsresponse
+  - connectionscenter/wheelsservice/_getvehiclemakesresponse
+  - connectionscenter/wheelsservice/_getvehiclemodelsresponse
+  - connectionscenter/wheelsservice/_getvehiclesubmodelsresponse
+  - connectionscenter/wheelsservice/_getvehiclewheelsresponse
+
 # Connections Center - Orders Web Service
   - connectionscenter/ordersservice/_ordersservice
   - connectionscenter/ordersservice/_getallordersbyconnection
