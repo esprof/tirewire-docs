@@ -68,3 +68,4 @@ unusedhg | string | *(internal)*
 unusedsp | string | *(internal)*
 FeaturesArray | string[] | Features (separated out by line)
 BenefitsArray | string[] | Benefits (separated out by line)
+QuantityDetails | QuantityDetail[] | *(internal)*

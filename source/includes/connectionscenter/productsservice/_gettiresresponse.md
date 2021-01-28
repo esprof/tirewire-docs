@@ -72,6 +72,7 @@
             <unusedsp>string</unusedsp>
             <FeaturesArray xsi:nil="true" />
             <BenefitsArray xsi:nil="true" />
+            <QuantityDetails xsi:nil="true" />
           </Tire>
           ...
         </Tires>
@@ -99,6 +100,7 @@
             <Notes>string</Notes>
             <Programs xsi:nil="true" />
             <TireClasses xsi:nil="true" />
+            <QuantityDetails xsi:nil="true" />
           </UnmappedTire>
           ...
         </UnmappedTires>

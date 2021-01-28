@@ -27,3 +27,4 @@ ConnectionID | int | Connection ID
 Notes | string | *(internal)*
 Programs | TireProgram[] | *(internal)*
 TireClasses | TireClass[] | Classes that provide a general grouping for tires
+QuantityDetails | QuantityDetail[] | *(internal)*
